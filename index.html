@@ -8,9 +8,10 @@
     <title>Pulse | Creative Audiovisual Studio</title>
 
     <style>
-        /* ------------------------------
+
+        /* ==============================
            RESET
-        ------------------------------ */
+        ============================== */
 
         * {
             margin: 0;
@@ -24,36 +25,38 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #0a0a0a;
+            background: #050505;
             color: white;
             overflow-x: hidden;
         }
 
 
-        /* ------------------------------
+        /* ==============================
            HERO
-        ------------------------------ */
+        ============================== */
 
         .hero {
             position: relative;
+
             width: 100%;
             height: 100vh;
+            height: 100svh;
+
             min-height: 600px;
+
             overflow: hidden;
-            background:
-                radial-gradient(
-                    circle at 70% 30%,
-                    #2a2a2a 0%,
-                    #111111 35%,
-                    #050505 75%
-                );
+
+            background: #050505;
         }
 
 
-        /* Video preparado para después */
+        /* ==============================
+           VIDEOS
+        ============================== */
 
         .hero-video {
             position: absolute;
+
             top: 50%;
             left: 50%;
 
@@ -61,6 +64,7 @@
             height: 100%;
 
             object-fit: cover;
+            object-position: center;
 
             transform: translate(-50%, -50%);
 
@@ -68,29 +72,50 @@
         }
 
 
-        /* Oscurece ligeramente el video */
+        /* Desktop visible por defecto */
+
+        .video-desktop {
+            display: block;
+        }
+
+
+        /* Móvil oculto por defecto */
+
+        .video-mobile {
+            display: none;
+        }
+
+
+        /* ==============================
+           OVERLAY
+        ============================== */
 
         .hero-overlay {
             position: absolute;
+
             inset: 0;
 
             background:
                 linear-gradient(
                     to bottom,
-                    rgba(0,0,0,0.15),
-                    rgba(0,0,0,0.25)
+                    rgba(0, 0, 0, 0.10) 0%,
+                    rgba(0, 0, 0, 0.05) 45%,
+                    rgba(0, 0, 0, 0.45) 100%
                 );
 
             z-index: 1;
+
+            pointer-events: none;
         }
 
 
-        /* ------------------------------
+        /* ==============================
            NAV
-        ------------------------------ */
+        ============================== */
 
         nav {
             position: absolute;
+
             top: 0;
             left: 0;
 
@@ -108,38 +133,51 @@
 
         .logo {
             font-size: 24px;
+
             font-weight: 700;
+
             letter-spacing: 4px;
+
+            color: white;
         }
 
 
         .menu {
             display: flex;
+
+            align-items: center;
+
             gap: 35px;
         }
 
 
         .menu a {
             color: white;
+
             text-decoration: none;
 
             font-size: 12px;
+
             font-weight: 600;
 
             letter-spacing: 2px;
 
-            transition: opacity 0.3s ease;
+            transition:
+                opacity 0.3s ease,
+                transform 0.3s ease;
         }
 
 
         .menu a:hover {
-            opacity: 0.5;
+            opacity: 0.6;
+
+            transform: translateY(-2px);
         }
 
 
-        /* ------------------------------
+        /* ==============================
            HERO CONTENT
-        ------------------------------ */
+        ============================== */
 
         .hero-content {
             position: absolute;
@@ -160,7 +198,13 @@
 
             letter-spacing: -7px;
 
+            color: white;
+
+            opacity: 0;
+
             animation: fadeUp 1.2s ease forwards;
+
+            animation-delay: 0.15s;
         }
 
 
@@ -169,20 +213,25 @@
 
             font-size: 13px;
 
+            font-weight: 500;
+
             letter-spacing: 4px;
 
             text-transform: uppercase;
 
+            color: white;
+
             opacity: 0;
 
             animation: fadeUp 1.2s ease forwards;
-            animation-delay: 0.25s;
+
+            animation-delay: 0.35s;
         }
 
 
-        /* ------------------------------
+        /* ==============================
            SCROLL INDICATOR
-        ------------------------------ */
+        ============================== */
 
         .scroll {
             position: absolute;
@@ -198,13 +247,19 @@
 
             writing-mode: vertical-rl;
 
-            opacity: 0.7;
+            color: white;
+
+            opacity: 0;
+
+            animation: fadeIn 1.5s ease forwards;
+
+            animation-delay: 1s;
         }
 
 
-        /* ------------------------------
+        /* ==============================
            ANIMATIONS
-        ------------------------------ */
+        ============================== */
 
         @keyframes fadeUp {
 
@@ -221,46 +276,142 @@
         }
 
 
-        /* ------------------------------
+        @keyframes fadeIn {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 0.7;
+            }
+
+        }
+
+
+        /* ==============================
            MOBILE
-        ------------------------------ */
+        ============================== */
 
         @media (max-width: 700px) {
 
+
+            /* Cambiamos los videos */
+
+            .video-desktop {
+                display: none;
+            }
+
+
+            .video-mobile {
+                display: block;
+            }
+
+
+            /* Hero */
+
+            .hero {
+                min-height: 100svh;
+            }
+
+
+            /* Navegación */
+
             nav {
-                padding: 25px;
+                padding: 25px 22px;
+            }
+
+
+            .logo {
+                font-size: 18px;
+
+                letter-spacing: 3px;
             }
 
 
             .menu {
-                gap: 15px;
+                gap: 14px;
             }
 
 
             .menu a {
                 font-size: 9px;
+
+                letter-spacing: 1.2px;
             }
 
 
+            /* Texto principal */
+
             .hero-content {
-                left: 25px;
+                left: 22px;
+                right: 22px;
+
                 bottom: 40px;
             }
 
 
             .hero-title {
-                letter-spacing: -3px;
+                font-size: clamp(65px, 25vw, 120px);
+
+                letter-spacing: -4px;
             }
 
 
             .hero-subtitle {
-                font-size: 10px;
-                letter-spacing: 2px;
+                margin-top: 20px;
+
+                font-size: 9px;
+
+                letter-spacing: 2.5px;
+
+                line-height: 1.5;
             }
 
 
+            /* Quitamos SCROLL en móvil */
+
             .scroll {
                 display: none;
+            }
+
+        }
+
+
+        /* ==============================
+           TELÉFONOS MUY PEQUEÑOS
+        ============================== */
+
+        @media (max-width: 430px) {
+
+            .menu {
+                gap: 10px;
+            }
+
+
+            .menu a {
+                font-size: 8px;
+            }
+
+
+            .hero-title {
+                font-size: 24vw;
+            }
+
+        }
+
+
+        /* ==============================
+           REDUCIR ANIMACIONES
+           POR ACCESIBILIDAD
+        ============================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
             }
 
         }
@@ -273,32 +424,65 @@
 <body>
 
 
-    <!-- HERO -->
+    <!-- ==============================
+         HERO
+    ============================== -->
 
     <section class="hero">
 
-        <!--
-        Cuando tengamos tu video,
-        activaremos esta parte:
+
+        <!-- VIDEO DESKTOP -->
 
         <video
-            class="hero-video"
+            class="hero-video video-desktop"
             autoplay
             muted
             loop
             playsinline
+            preload="auto"
         >
-            <source src="hero.mp4" type="video/mp4">
-        </video>
-        -->
 
+            <source
+                src="hero-desktop.mp4"
+                type="video/mp4"
+            >
+
+        </video>
+
+
+
+        <!-- VIDEO MOBILE -->
+
+        <video
+            class="hero-video video-mobile"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+        >
+
+            <source
+                src="hero-mobile.mp4"
+                type="video/mp4"
+            >
+
+        </video>
+
+
+
+        <!-- CAPA OSCURA SOBRE EL VIDEO -->
 
         <div class="hero-overlay"></div>
 
 
-        <!-- MENU -->
+
+        <!-- ==============================
+             MENU
+        ============================== -->
 
         <nav>
+
 
             <div class="logo">
                 PULSE
@@ -321,23 +505,33 @@
 
             </div>
 
+
         </nav>
 
 
-        <!-- HERO TEXT -->
+
+        <!-- ==============================
+             HERO TEXT
+        ============================== -->
 
         <div class="hero-content">
+
 
             <h1 class="hero-title">
                 PULSE
             </h1>
 
+
             <p class="hero-subtitle">
                 Creative Audiovisual Studio
             </p>
 
+
         </div>
 
+
+
+        <!-- SCROLL -->
 
         <div class="scroll">
             SCROLL
