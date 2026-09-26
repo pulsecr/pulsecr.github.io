@@ -32,6 +32,62 @@
 
 
         /* ==============================
+           NAV
+        ============================== */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 35px 50px;
+
+            z-index: 100;
+
+            transition:
+                background 0.3s ease,
+                padding 0.3s ease;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: white;
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+
+            transition:
+                opacity 0.3s ease,
+                transform 0.3s ease;
+        }
+
+        .menu a:hover {
+            opacity: 0.5;
+            transform: translateY(-2px);
+        }
+
+
+        /* ==============================
            HERO
         ============================== */
 
@@ -45,13 +101,12 @@
             min-height: 600px;
 
             overflow: hidden;
-
             background: #050505;
         }
 
 
         /* ==============================
-           VIDEOS
+           HERO VIDEOS
         ============================== */
 
         .hero-video {
@@ -71,15 +126,9 @@
             z-index: 0;
         }
 
-
-        /* Desktop visible por defecto */
-
         .video-desktop {
             display: block;
         }
-
-
-        /* Móvil oculto por defecto */
 
         .video-mobile {
             display: none;
@@ -87,12 +136,11 @@
 
 
         /* ==============================
-           OVERLAY
+           HERO OVERLAY
         ============================== */
 
         .hero-overlay {
             position: absolute;
-
             inset: 0;
 
             background:
@@ -100,78 +148,12 @@
                     to bottom,
                     rgba(0, 0, 0, 0.10) 0%,
                     rgba(0, 0, 0, 0.05) 45%,
-                    rgba(0, 0, 0, 0.45) 100%
+                    rgba(0, 0, 0, 0.50) 100%
                 );
 
             z-index: 1;
 
             pointer-events: none;
-        }
-
-
-        /* ==============================
-           NAV
-        ============================== */
-
-        nav {
-            position: absolute;
-
-            top: 0;
-            left: 0;
-
-            width: 100%;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            padding: 35px 50px;
-
-            z-index: 10;
-        }
-
-
-        .logo {
-            font-size: 24px;
-
-            font-weight: 700;
-
-            letter-spacing: 4px;
-
-            color: white;
-        }
-
-
-        .menu {
-            display: flex;
-
-            align-items: center;
-
-            gap: 35px;
-        }
-
-
-        .menu a {
-            color: white;
-
-            text-decoration: none;
-
-            font-size: 12px;
-
-            font-weight: 600;
-
-            letter-spacing: 2px;
-
-            transition:
-                opacity 0.3s ease,
-                transform 0.3s ease;
-        }
-
-
-        .menu a:hover {
-            opacity: 0.6;
-
-            transform: translateY(-2px);
         }
 
 
@@ -187,7 +169,6 @@
 
             z-index: 5;
         }
-
 
         .hero-title {
             font-size: clamp(70px, 13vw, 190px);
@@ -207,19 +188,15 @@
             animation-delay: 0.15s;
         }
 
-
         .hero-subtitle {
             margin-top: 30px;
 
             font-size: 13px;
-
             font-weight: 500;
 
             letter-spacing: 4px;
 
             text-transform: uppercase;
-
-            color: white;
 
             opacity: 0;
 
@@ -230,7 +207,7 @@
 
 
         /* ==============================
-           SCROLL INDICATOR
+           SCROLL
         ============================== */
 
         .scroll {
@@ -247,13 +224,197 @@
 
             writing-mode: vertical-rl;
 
-            color: white;
-
             opacity: 0;
 
             animation: fadeIn 1.5s ease forwards;
 
             animation-delay: 1s;
+        }
+
+
+        /* ==============================
+           GENERAL SECTIONS
+        ============================== */
+
+        .section {
+            position: relative;
+
+            min-height: 100vh;
+
+            padding: 150px 50px 100px;
+
+            scroll-margin-top: 80px;
+        }
+
+        .section-number {
+            font-size: 11px;
+
+            letter-spacing: 3px;
+
+            opacity: 0.45;
+
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: clamp(65px, 10vw, 150px);
+
+            line-height: 0.9;
+
+            letter-spacing: -5px;
+
+            font-weight: 700;
+        }
+
+
+        /* ==============================
+           WORK
+        ============================== */
+
+        #work {
+            background: #050505;
+        }
+
+        .work-intro {
+            max-width: 650px;
+
+            margin-top: 60px;
+
+            font-size: clamp(18px, 2vw, 28px);
+
+            line-height: 1.4;
+
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .work-placeholder {
+            margin-top: 100px;
+
+            width: 100%;
+            height: 55vh;
+
+            min-height: 400px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border: 1px solid rgba(255,255,255,0.15);
+
+            font-size: 11px;
+
+            letter-spacing: 4px;
+
+            color: rgba(255,255,255,0.4);
+        }
+
+
+        /* ==============================
+           ABOUT
+        ============================== */
+
+        #about {
+            background: #f1f1ed;
+            color: #0a0a0a;
+        }
+
+        .about-content {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 80px;
+
+            margin-top: 90px;
+        }
+
+        .about-large-text {
+            font-size: clamp(28px, 4vw, 60px);
+
+            line-height: 1.05;
+
+            letter-spacing: -2px;
+        }
+
+        .about-text {
+            max-width: 520px;
+
+            font-size: 18px;
+
+            line-height: 1.7;
+
+            color: rgba(0,0,0,0.65);
+        }
+
+
+        /* ==============================
+           CONTACT
+        ============================== */
+
+        #contact {
+            background: #050505;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .contact-title {
+            font-size: clamp(65px, 12vw, 180px);
+
+            line-height: 0.85;
+
+            letter-spacing: -7px;
+
+            max-width: 1200px;
+        }
+
+        .contact-bottom {
+            margin-top: 120px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+
+            gap: 50px;
+        }
+
+        .contact-text {
+            max-width: 500px;
+
+            font-size: 20px;
+
+            line-height: 1.5;
+
+            color: rgba(255,255,255,0.65);
+        }
+
+        .contact-links {
+            display: flex;
+
+            gap: 30px;
+
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+
+            border-bottom: 1px solid rgba(255,255,255,0.4);
+
+            padding-bottom: 5px;
+
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            opacity: 0.5;
         }
 
 
@@ -275,7 +436,6 @@
 
         }
 
-
         @keyframes fadeIn {
 
             from {
@@ -295,68 +455,54 @@
 
         @media (max-width: 700px) {
 
-
-            /* Cambiamos los videos */
+            /* VIDEO */
 
             .video-desktop {
                 display: none;
             }
-
 
             .video-mobile {
                 display: block;
             }
 
 
-            /* Hero */
-
-            .hero {
-                min-height: 100svh;
-            }
-
-
-            /* Navegación */
+            /* NAV */
 
             nav {
                 padding: 25px 22px;
             }
 
-
             .logo {
                 font-size: 18px;
-
                 letter-spacing: 3px;
             }
-
 
             .menu {
                 gap: 14px;
             }
 
-
             .menu a {
                 font-size: 9px;
-
                 letter-spacing: 1.2px;
             }
 
 
-            /* Texto principal */
+            /* HERO */
+
+            .hero {
+                min-height: 100svh;
+            }
 
             .hero-content {
                 left: 22px;
                 right: 22px;
-
                 bottom: 40px;
             }
 
-
             .hero-title {
                 font-size: clamp(65px, 25vw, 120px);
-
                 letter-spacing: -4px;
             }
-
 
             .hero-subtitle {
                 margin-top: 20px;
@@ -368,18 +514,103 @@
                 line-height: 1.5;
             }
 
-
-            /* Quitamos SCROLL en móvil */
-
             .scroll {
                 display: none;
+            }
+
+
+            /* SECTIONS */
+
+            .section {
+                min-height: auto;
+
+                padding: 120px 22px 80px;
+            }
+
+            .section-title {
+                font-size: clamp(55px, 20vw, 100px);
+
+                letter-spacing: -3px;
+            }
+
+
+            /* WORK */
+
+            .work-intro {
+                margin-top: 40px;
+
+                font-size: 18px;
+            }
+
+            .work-placeholder {
+                margin-top: 60px;
+
+                height: 60vh;
+
+                min-height: 450px;
+
+                text-align: center;
+
+                padding: 20px;
+            }
+
+
+            /* ABOUT */
+
+            .about-content {
+                grid-template-columns: 1fr;
+
+                gap: 45px;
+
+                margin-top: 60px;
+            }
+
+            .about-large-text {
+                font-size: 34px;
+            }
+
+            .about-text {
+                font-size: 16px;
+            }
+
+
+            /* CONTACT */
+
+            #contact {
+                min-height: 100svh;
+            }
+
+            .contact-title {
+                font-size: clamp(60px, 20vw, 100px);
+
+                letter-spacing: -4px;
+            }
+
+            .contact-bottom {
+                margin-top: 100px;
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 50px;
+            }
+
+            .contact-text {
+                font-size: 17px;
+            }
+
+            .contact-links {
+                flex-direction: column;
+
+                gap: 20px;
             }
 
         }
 
 
         /* ==============================
-           TELÉFONOS MUY PEQUEÑOS
+           VERY SMALL PHONES
         ============================== */
 
         @media (max-width: 430px) {
@@ -388,11 +619,9 @@
                 gap: 10px;
             }
 
-
             .menu a {
                 font-size: 8px;
             }
-
 
             .hero-title {
                 font-size: 24vw;
@@ -402,8 +631,7 @@
 
 
         /* ==============================
-           REDUCIR ANIMACIONES
-           POR ACCESIBILIDAD
+           ACCESSIBILITY
         ============================== */
 
         @media (prefers-reduced-motion: reduce) {
@@ -425,13 +653,43 @@
 
 
     <!-- ==============================
+         FIXED NAVIGATION
+    ============================== -->
+
+    <nav>
+
+        <div class="logo">
+            PULSE
+        </div>
+
+        <div class="menu">
+
+            <a href="#work">
+                WORK
+            </a>
+
+            <a href="#about">
+                ABOUT
+            </a>
+
+            <a href="#contact">
+                CONTACT
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- ==============================
          HERO
     ============================== -->
 
     <section class="hero">
 
 
-        <!-- VIDEO DESKTOP -->
+        <!-- DESKTOP VIDEO -->
 
         <video
             class="hero-video video-desktop"
@@ -450,8 +708,7 @@
         </video>
 
 
-
-        <!-- VIDEO MOBILE -->
+        <!-- MOBILE VIDEO -->
 
         <video
             class="hero-video video-mobile"
@@ -470,71 +727,171 @@
         </video>
 
 
-
-        <!-- CAPA OSCURA SOBRE EL VIDEO -->
-
         <div class="hero-overlay"></div>
 
 
-
-        <!-- ==============================
-             MENU
-        ============================== -->
-
-        <nav>
-
-
-            <div class="logo">
-                PULSE
-            </div>
-
-
-            <div class="menu">
-
-                <a href="#work">
-                    WORK
-                </a>
-
-                <a href="#about">
-                    ABOUT
-                </a>
-
-                <a href="#contact">
-                    CONTACT
-                </a>
-
-            </div>
-
-
-        </nav>
-
-
-
-        <!-- ==============================
-             HERO TEXT
-        ============================== -->
-
         <div class="hero-content">
-
 
             <h1 class="hero-title">
                 PULSE
             </h1>
 
-
             <p class="hero-subtitle">
                 Creative Audiovisual Studio
             </p>
 
+        </div>
+
+
+        <div class="scroll">
+            SCROLL
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==============================
+         WORK
+    ============================== -->
+
+    <section
+        class="section"
+        id="work"
+    >
+
+        <div class="section-number">
+            01 / WORK
+        </div>
+
+        <h2 class="section-title">
+            SELECTED<br>
+            WORK
+        </h2>
+
+        <p class="work-intro">
+            Una selección de proyectos de producción audiovisual,
+            fotografía, contenido y dirección creativa.
+        </p>
+
+
+        <div class="work-placeholder">
+            PROJECTS COMING HERE
+        </div>
+
+    </section>
+
+
+
+    <!-- ==============================
+         ABOUT
+    ============================== -->
+
+    <section
+        class="section"
+        id="about"
+    >
+
+        <div class="section-number">
+            02 / ABOUT
+        </div>
+
+        <h2 class="section-title">
+            ABOUT<br>
+            PULSE
+        </h2>
+
+
+        <div class="about-content">
+
+            <div class="about-large-text">
+
+                Ideas que se convierten
+                en imágenes que se sienten.
+
+            </div>
+
+
+            <div class="about-text">
+
+                Pulse es un estudio creativo enfocado en producción
+                audiovisual, fotografía y creación de contenido.
+
+                <br><br>
+
+                Trabajamos desde el concepto hasta la pieza final,
+                buscando que cada proyecto tenga una identidad visual
+                propia.
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==============================
+         CONTACT
+    ============================== -->
+
+    <section
+        class="section"
+        id="contact"
+    >
+
+        <div>
+
+            <div class="section-number">
+                03 / CONTACT
+            </div>
+
+
+            <h2 class="contact-title">
+                LET'S CREATE<br>
+                SOMETHING.
+            </h2>
 
         </div>
 
 
+        <div class="contact-bottom">
 
-        <!-- SCROLL -->
 
-        <div class="scroll">
-            SCROLL
+            <p class="contact-text">
+
+                ¿Tenés un proyecto en mente?
+
+                <br>
+
+                Hablemos.
+
+            </p>
+
+
+            <div class="contact-links">
+
+                <!--
+                Luego pondremos aquí
+                tus enlaces reales.
+                -->
+
+                <a href="#">
+                    WHATSAPP
+                </a>
+
+                <a href="#">
+                    EMAIL
+                </a>
+
+                <a href="#">
+                    INSTAGRAM
+                </a>
+
+            </div>
+
+
         </div>
 
 
