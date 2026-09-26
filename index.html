@@ -3,15 +3,20 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Pulse | Creative Audiovisual Studio</title>
 
+
     <style>
 
-        /* ==============================
+        /* =========================================
            RESET
-        ============================== */
+        ========================================= */
 
         * {
             margin: 0;
@@ -19,21 +24,29 @@
             box-sizing: border-box;
         }
 
+
         html {
             scroll-behavior: smooth;
+
             width: 100%;
             max-width: 100%;
+
             overflow-x: hidden;
         }
 
+
         body {
             font-family: Arial, Helvetica, sans-serif;
+
             background: #050505;
             color: white;
+
             width: 100%;
             max-width: 100%;
+
             overflow-x: hidden;
         }
+
 
         img,
         video {
@@ -41,9 +54,10 @@
         }
 
 
-        /* ==============================
-           NAV
-        ============================== */
+
+        /* =========================================
+           NAVIGATION
+        ========================================= */
 
         nav {
             position: fixed;
@@ -67,19 +81,25 @@
                 padding 0.3s ease;
         }
 
+
         .menu {
             display: flex;
             align-items: center;
+
             gap: 40px;
+
             flex-shrink: 0;
         }
 
+
         .menu a {
             color: white;
+
             text-decoration: none;
 
             font-size: 15px;
             font-weight: 600;
+
             letter-spacing: 2px;
 
             white-space: nowrap;
@@ -89,15 +109,18 @@
                 transform 0.3s ease;
         }
 
+
         .menu a:hover {
             opacity: 0.5;
+
             transform: translateY(-2px);
         }
 
 
-        /* ==============================
+
+        /* =========================================
            HERO
-        ============================== */
+        ========================================= */
 
         .hero {
             position: relative;
@@ -116,9 +139,10 @@
         }
 
 
-        /* ==============================
+
+        /* =========================================
            HERO VIDEOS
-        ============================== */
+        ========================================= */
 
         .hero-video {
             position: absolute;
@@ -139,18 +163,21 @@
             z-index: 0;
         }
 
+
         .video-desktop {
             display: block;
         }
+
 
         .video-mobile {
             display: none;
         }
 
 
-        /* ==============================
+
+        /* =========================================
            HERO OVERLAY
-        ============================== */
+        ========================================= */
 
         .hero-overlay {
             position: absolute;
@@ -174,9 +201,10 @@
         }
 
 
-        /* ==============================
+
+        /* =========================================
            HERO CONTENT
-        ============================== */
+        ========================================= */
 
         .hero-content {
             position: absolute;
@@ -188,6 +216,7 @@
 
             max-width: calc(100% - 100px);
         }
+
 
         .hero-title {
             font-size: clamp(70px, 13vw, 190px);
@@ -207,6 +236,7 @@
             animation-delay: 0.15s;
         }
 
+
         .hero-subtitle {
             margin-top: 30px;
 
@@ -225,9 +255,10 @@
         }
 
 
-        /* ==============================
+
+        /* =========================================
            SCROLL INDICATOR
-        ============================== */
+        ========================================= */
 
         .scroll {
             position: absolute;
@@ -251,9 +282,10 @@
         }
 
 
-        /* ==============================
+
+        /* =========================================
            GENERAL SECTIONS
-        ============================== */
+        ========================================= */
 
         .section {
             position: relative;
@@ -270,6 +302,7 @@
             overflow: hidden;
         }
 
+
         .section-number {
             font-size: 11px;
 
@@ -279,6 +312,7 @@
 
             margin-bottom: 25px;
         }
+
 
         .section-title {
             font-size: clamp(65px, 10vw, 150px);
@@ -293,13 +327,15 @@
         }
 
 
-        /* ==============================
+
+        /* =========================================
            WORK
-        ============================== */
+        ========================================= */
 
         #work {
             background: #050505;
         }
+
 
         .work-intro {
             max-width: 650px;
@@ -313,6 +349,7 @@
             color: rgba(255, 255, 255, 0.7);
         }
 
+
         .work-placeholder {
             margin-top: 100px;
 
@@ -320,35 +357,45 @@
             max-width: 100%;
 
             height: 55vh;
+
             min-height: 400px;
 
             display: flex;
+
             justify-content: center;
             align-items: center;
 
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.15);
 
             font-size: 11px;
 
             letter-spacing: 4px;
 
-            color: rgba(255, 255, 255, 0.4);
+            color:
+                rgba(255, 255, 255, 0.4);
         }
 
 
-        /* ==============================
+
+        /* =========================================
            ABOUT
-        ============================== */
+        ========================================= */
 
         #about {
             background: #f1f1ed;
+
             color: #0a0a0a;
         }
+
 
         .about-content {
             display: grid;
 
-            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            grid-template-columns:
+                minmax(0, 1fr)
+                minmax(0, 1fr);
 
             gap: 80px;
 
@@ -358,8 +405,10 @@
             max-width: 100%;
         }
 
+
         .about-large-text {
-            font-size: clamp(28px, 4vw, 60px);
+            font-size:
+                clamp(28px, 4vw, 60px);
 
             line-height: 1.05;
 
@@ -368,6 +417,7 @@
             min-width: 0;
         }
 
+
         .about-text {
             max-width: 520px;
 
@@ -375,26 +425,28 @@
 
             line-height: 1.7;
 
-            color: rgba(0, 0, 0, 0.65);
+            color:
+                rgba(0, 0, 0, 0.65);
 
             min-width: 0;
         }
 
 
-        /* ==============================
+
+        /* =========================================
            CONTACT
-        ============================== */
+        ========================================= */
 
         #contact {
             background: #050505;
 
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            min-height: 100vh;
         }
 
+
         .contact-title {
-            font-size: clamp(65px, 12vw, 180px);
+            font-size:
+                clamp(65px, 12vw, 180px);
 
             line-height: 0.85;
 
@@ -403,77 +455,109 @@
             max-width: 100%;
         }
 
-        .contact-bottom {
-            margin-top: 120px;
 
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
+        /* Texto debajo del título */
 
-            gap: 50px;
+        .contact-message {
+            margin-top: 55px;
 
-            width: 100%;
-            max-width: 100%;
-        }
+            font-size:
+                clamp(18px, 2vw, 26px);
 
-        .contact-text {
+            line-height: 1.45;
+
+            color:
+                rgba(255, 255, 255, 0.68);
+
             max-width: 500px;
-
-            font-size: 20px;
-
-            line-height: 1.5;
-
-            color: rgba(255, 255, 255, 0.65);
         }
 
-        .contact-links {
+
+
+        /* Redes */
+
+        .social-links {
             display: flex;
 
-            gap: 30px;
+            align-items: center;
 
-            flex-wrap: wrap;
+            gap: 28px;
 
-            max-width: 100%;
+            margin-top: 60px;
         }
 
-        .contact-links a {
+
+        .social-link {
+            width: 70px;
+            height: 70px;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
             color: white;
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.30);
+
+            border-radius: 50%;
 
             text-decoration: none;
 
-            font-size: 12px;
-
-            letter-spacing: 2px;
-
-            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-
-            padding-bottom: 5px;
-
-            transition: opacity 0.3s ease;
-        }
-
-        .contact-links a:hover {
-            opacity: 0.5;
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease,
+                color 0.3s ease,
+                border-color 0.3s ease;
         }
 
 
-        /* ==============================
+        .social-link svg {
+            width: 29px;
+            height: 29px;
+
+            fill: currentColor;
+        }
+
+
+        .social-link:hover {
+            transform:
+                translateY(-5px)
+                scale(1.06);
+
+            background: white;
+
+            color: #050505;
+
+            border-color: white;
+        }
+
+
+
+        /* =========================================
            ANIMATIONS
-        ============================== */
+        ========================================= */
 
         @keyframes fadeUp {
 
             from {
                 opacity: 0;
-                transform: translateY(40px);
+
+                transform:
+                    translateY(40px);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0);
+
+                transform:
+                    translateY(0);
             }
 
         }
+
 
         @keyframes fadeIn {
 
@@ -488,18 +572,22 @@
         }
 
 
-        /* ==============================
+
+        /* =========================================
            MOBILE
-        ============================== */
+        ========================================= */
 
         @media (max-width: 700px) {
+
 
             html,
             body {
                 width: 100%;
                 max-width: 100%;
+
                 overflow-x: hidden;
             }
+
 
 
             /* VIDEO */
@@ -508,9 +596,11 @@
                 display: none;
             }
 
+
             .video-mobile {
                 display: block;
             }
+
 
 
             /* NAV */
@@ -526,19 +616,24 @@
                 overflow: hidden;
             }
 
+
             .menu {
                 gap: 18px;
+
                 min-width: 0;
             }
 
+
             .menu a {
                 font-size: 11px;
+
                 font-weight: 600;
 
                 letter-spacing: 1.5px;
 
                 white-space: nowrap;
             }
+
 
 
             /* HERO */
@@ -552,6 +647,7 @@
                 overflow: hidden;
             }
 
+
             .hero-video {
                 width: 100%;
                 height: 100%;
@@ -561,6 +657,7 @@
                 object-fit: cover;
             }
 
+
             .hero-content {
                 left: 22px;
                 right: 22px;
@@ -568,11 +665,14 @@
                 bottom: 40px;
 
                 width: auto;
+
                 max-width: none;
             }
 
+
             .hero-title {
-                font-size: clamp(60px, 24vw, 110px);
+                font-size:
+                    clamp(60px, 24vw, 110px);
 
                 letter-spacing: -4px;
 
@@ -580,6 +680,7 @@
 
                 white-space: nowrap;
             }
+
 
             .hero-subtitle {
                 margin-top: 20px;
@@ -593,9 +694,11 @@
                 max-width: 100%;
             }
 
+
             .scroll {
                 display: none;
             }
+
 
 
             /* SECTIONS */
@@ -606,16 +709,19 @@
 
                 min-height: auto;
 
-                padding: 120px 22px 80px;
+                padding:
+                    120px 22px 80px;
 
                 overflow: hidden;
             }
 
 
-            /* TITLES MOBILE */
+
+            /* SECTION TITLES */
 
             .section-title {
-                font-size: clamp(44px, 15vw, 72px);
+                font-size:
+                    clamp(44px, 15vw, 72px);
 
                 line-height: 0.92;
 
@@ -625,9 +731,12 @@
                 max-width: 100%;
 
                 overflow-wrap: normal;
+
                 word-break: keep-all;
+
                 hyphens: none;
             }
+
 
 
             /* WORK */
@@ -641,6 +750,7 @@
                 font-size: 18px;
             }
 
+
             .work-placeholder {
                 margin-top: 60px;
 
@@ -648,6 +758,7 @@
                 max-width: 100%;
 
                 height: 60vh;
+
                 min-height: 450px;
 
                 text-align: center;
@@ -656,10 +767,12 @@
             }
 
 
+
             /* ABOUT */
 
             .about-content {
-                grid-template-columns: minmax(0, 1fr);
+                grid-template-columns:
+                    minmax(0, 1fr);
 
                 gap: 45px;
 
@@ -669,6 +782,7 @@
                 max-width: 100%;
             }
 
+
             .about-large-text {
                 width: 100%;
                 max-width: 100%;
@@ -676,8 +790,10 @@
                 font-size: 34px;
 
                 overflow-wrap: normal;
+
                 word-break: normal;
             }
+
 
             .about-text {
                 width: 100%;
@@ -686,8 +802,10 @@
                 font-size: 16px;
 
                 overflow-wrap: normal;
+
                 word-break: normal;
             }
+
 
 
             /* CONTACT */
@@ -696,8 +814,10 @@
                 min-height: 100svh;
             }
 
+
             .contact-title {
-                font-size: clamp(42px, 13.5vw, 68px);
+                font-size:
+                    clamp(42px, 13.5vw, 68px);
 
                 line-height: 0.9;
 
@@ -707,99 +827,121 @@
                 max-width: 100%;
 
                 overflow-wrap: normal;
+
                 word-break: keep-all;
+
                 hyphens: none;
             }
 
-            .contact-bottom {
-                margin-top: 100px;
 
-                flex-direction: column;
+            .contact-message {
+                margin-top: 40px;
 
-                align-items: flex-start;
+                font-size: 18px;
 
-                gap: 50px;
+                line-height: 1.5;
 
-                width: 100%;
-                max-width: 100%;
+                max-width: 320px;
             }
 
-            .contact-text {
-                width: 100%;
-                max-width: 100%;
 
-                font-size: 17px;
-            }
-
-            .contact-links {
-                flex-direction: column;
+            .social-links {
+                margin-top: 45px;
 
                 gap: 20px;
+            }
 
-                width: 100%;
-                max-width: 100%;
+
+            .social-link {
+                width: 62px;
+                height: 62px;
+            }
+
+
+            .social-link svg {
+                width: 27px;
+                height: 27px;
             }
 
         }
 
 
-        /* ==============================
+
+        /* =========================================
            VERY SMALL PHONES
-        ============================== */
+        ========================================= */
 
         @media (max-width: 430px) {
+
 
             nav {
                 padding-left: 18px;
                 padding-right: 18px;
             }
 
+
             .menu {
                 gap: 15px;
             }
 
+
             .menu a {
                 font-size: 10.5px;
+
                 letter-spacing: 1.2px;
             }
+
 
             .hero-content {
                 left: 18px;
                 right: 18px;
             }
 
+
             .hero-title {
                 font-size: 23vw;
             }
+
 
             .section {
                 padding-left: 18px;
                 padding-right: 18px;
             }
 
+
             .section-title {
                 font-size: 14.5vw;
+
                 letter-spacing: -2.5px;
             }
 
+
             .contact-title {
                 font-size: 12.8vw;
+
                 letter-spacing: -2.5px;
             }
 
         }
 
 
-        /* ==============================
-           ACCESSIBILITY
-        ============================== */
 
-        @media (prefers-reduced-motion: reduce) {
+        /* =========================================
+           ACCESSIBILITY
+        ========================================= */
+
+        @media
+        (prefers-reduced-motion: reduce) {
 
             * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                scroll-behavior: auto !important;
+                animation-duration:
+                    0.01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                scroll-behavior:
+                    auto !important;
             }
 
         }
@@ -812,9 +954,10 @@
 <body>
 
 
-    <!-- ==============================
+
+    <!-- =========================================
          NAVIGATION
-    ============================== -->
+    ========================================== -->
 
     <nav>
 
@@ -838,9 +981,9 @@
 
 
 
-    <!-- ==============================
+    <!-- =========================================
          HERO
-    ============================== -->
+    ========================================== -->
 
     <section class="hero">
 
@@ -864,6 +1007,7 @@
         </video>
 
 
+
         <!-- MOBILE VIDEO -->
 
         <video
@@ -883,7 +1027,9 @@
         </video>
 
 
+
         <div class="hero-overlay"></div>
+
 
 
         <div class="hero-content">
@@ -892,11 +1038,13 @@
                 PULSE
             </h1>
 
+
             <p class="hero-subtitle">
                 Creative Audiovisual Studio
             </p>
 
         </div>
+
 
 
         <div class="scroll">
@@ -908,58 +1056,73 @@
 
 
 
-    <!-- ==============================
+    <!-- =========================================
          WORK
-    ============================== -->
+    ========================================== -->
 
     <section
         class="section"
         id="work"
     >
 
+
         <div class="section-number">
             01 / WORK
         </div>
+
 
         <h2 class="section-title">
             SELECTED<br>
             WORK
         </h2>
 
+
         <p class="work-intro">
+
             Una selección de proyectos de producción audiovisual,
             fotografía, contenido y dirección creativa.
+
         </p>
 
 
+
         <div class="work-placeholder">
+
             PROJECTS COMING HERE
+
         </div>
+
 
     </section>
 
 
 
-    <!-- ==============================
+    <!-- =========================================
          ABOUT
-    ============================== -->
+    ========================================== -->
 
     <section
         class="section"
         id="about"
     >
 
+
         <div class="section-number">
             02 / ABOUT
         </div>
 
+
         <h2 class="section-title">
+
             ABOUT<br>
             PULSE
+
         </h2>
 
 
+
         <div class="about-content">
+
 
             <div class="about-large-text">
 
@@ -967,6 +1130,7 @@
                 en imágenes que se sienten.
 
             </div>
+
 
 
             <div class="about-text">
@@ -982,65 +1146,103 @@
 
             </div>
 
+
         </div>
+
 
     </section>
 
 
 
-    <!-- ==============================
+    <!-- =========================================
          CONTACT
-    ============================== -->
+    ========================================== -->
 
     <section
         class="section"
         id="contact"
     >
 
-        <div>
 
-            <div class="section-number">
-                03 / CONTACT
-            </div>
-
-
-            <h2 class="contact-title">
-                LET'S CREATE<br>
-                SOMETHING.
-            </h2>
-
+        <div class="section-number">
+            03 / CONTACT
         </div>
 
 
-        <div class="contact-bottom">
+
+        <h2 class="contact-title">
+
+            LET'S CREATE<br>
+            SOMETHING.
+
+        </h2>
 
 
-            <p class="contact-text">
 
-                ¿Tenés un proyecto en mente?
+        <!-- MENSAJE -->
 
-                <br>
+        <p class="contact-message">
 
-                Hablemos.
+            ¿Tenés un proyecto en mente?
 
-            </p>
+            <br>
+
+            Hablemos.
+
+        </p>
 
 
-            <div class="contact-links">
 
-                <a href="#">
-                    WHATSAPP
-                </a>
+        <!-- REDES -->
 
-                <a href="#">
-                    EMAIL
-                </a>
+        <div class="social-links">
 
-                <a href="#">
-                    INSTAGRAM
-                </a>
 
-            </div>
+            <!-- WHATSAPP -->
+
+            <a
+                class="social-link"
+                href="https://wa.me/50688453525?text=Hola%2C%20vi%20el%20portafolio%20de%20Pulse%20Media%20y%20me%20gustar%C3%ADa%20conversar%20sobre%20un%20proyecto."
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Contactar a Pulse Media por WhatsApp"
+                title="WhatsApp"
+            >
+
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.009-.371-.011-.57-.011-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479s1.065 2.875 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.693.625.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.89-9.884a9.82 9.82 0 0 1 7.021 2.91 9.83 9.83 0 0 1 2.9 7.01c-.003 5.45-4.437 9.884-9.927 9.884m8.413-18.297A11.815 11.815 0 0 0 12.055 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.88 11.88 0 0 0 5.69 1.448h.005c6.559 0 11.894-5.335 11.897-11.893a11.82 11.82 0 0 0-3.49-8.413"/>
+
+                </svg>
+
+            </a>
+
+
+
+            <!-- INSTAGRAM -->
+
+            <a
+                class="social-link"
+                href="https://www.instagram.com/pulsemediacr/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram de Pulse Media"
+                title="Instagram"
+            >
+
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+
+                    <path d="M7.75 2h8.5C19.425 2 22 4.575 22 7.75v8.5C22 19.425 19.425 22 16.25 22h-8.5C4.575 22 2 19.425 2 16.25v-8.5C2 4.575 4.575 2 7.75 2zm0 2C5.679 4 4 5.679 4 7.75v8.5C4 18.321 5.679 20 7.75 20h8.5C18.321 20 20 18.321 20 16.25v-8.5C20 5.679 18.321 4 16.25 4h-8.5zm8.75 1.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+
+                </svg>
+
+            </a>
 
 
         </div>
