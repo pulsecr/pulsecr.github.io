@@ -21,13 +21,26 @@
 
         html {
             scroll-behavior: smooth;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
         }
 
         body {
             font-family: Arial, Helvetica, sans-serif;
+
             background: #050505;
             color: white;
+
+            width: 100%;
+            max-width: 100%;
+
             overflow-x: hidden;
+        }
+
+        img,
+        video {
+            max-width: 100%;
         }
 
 
@@ -37,10 +50,12 @@
 
         nav {
             position: fixed;
+
             top: 0;
             left: 0;
 
             width: 100%;
+            max-width: 100%;
 
             display: flex;
             justify-content: space-between;
@@ -58,22 +73,31 @@
         .logo {
             font-size: 24px;
             font-weight: 700;
+
             letter-spacing: 4px;
+
             color: white;
+
+            flex-shrink: 0;
         }
 
         .menu {
             display: flex;
             align-items: center;
+
             gap: 35px;
+
+            flex-shrink: 0;
         }
 
         .menu a {
             color: white;
+
             text-decoration: none;
 
             font-size: 12px;
             font-weight: 600;
+
             letter-spacing: 2px;
 
             transition:
@@ -95,12 +119,15 @@
             position: relative;
 
             width: 100%;
+            max-width: 100%;
+
             height: 100vh;
             height: 100svh;
 
             min-height: 600px;
 
             overflow: hidden;
+
             background: #050505;
         }
 
@@ -116,6 +143,8 @@
             left: 50%;
 
             width: 100%;
+            max-width: none;
+
             height: 100%;
 
             object-fit: cover;
@@ -141,7 +170,11 @@
 
         .hero-overlay {
             position: absolute;
+
             inset: 0;
+
+            width: 100%;
+            height: 100%;
 
             background:
                 linear-gradient(
@@ -168,6 +201,8 @@
             bottom: 60px;
 
             z-index: 5;
+
+            max-width: calc(100% - 100px);
         }
 
         .hero-title {
@@ -207,7 +242,7 @@
 
 
         /* ==============================
-           SCROLL
+           SCROLL INDICATOR
         ============================== */
 
         .scroll {
@@ -239,11 +274,16 @@
         .section {
             position: relative;
 
+            width: 100%;
+            max-width: 100%;
+
             min-height: 100vh;
 
             padding: 150px 50px 100px;
 
             scroll-margin-top: 80px;
+
+            overflow: hidden;
         }
 
         .section-number {
@@ -264,6 +304,10 @@
             letter-spacing: -5px;
 
             font-weight: 700;
+
+            max-width: 100%;
+
+            overflow-wrap: break-word;
         }
 
 
@@ -291,21 +335,22 @@
             margin-top: 100px;
 
             width: 100%;
-            height: 55vh;
+            max-width: 100%;
 
+            height: 55vh;
             min-height: 400px;
 
             display: flex;
             justify-content: center;
             align-items: center;
 
-            border: 1px solid rgba(255,255,255,0.15);
+            border: 1px solid rgba(255, 255, 255, 0.15);
 
             font-size: 11px;
 
             letter-spacing: 4px;
 
-            color: rgba(255,255,255,0.4);
+            color: rgba(255, 255, 255, 0.4);
         }
 
 
@@ -321,11 +366,14 @@
         .about-content {
             display: grid;
 
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 
             gap: 80px;
 
             margin-top: 90px;
+
+            width: 100%;
+            max-width: 100%;
         }
 
         .about-large-text {
@@ -334,6 +382,8 @@
             line-height: 1.05;
 
             letter-spacing: -2px;
+
+            min-width: 0;
         }
 
         .about-text {
@@ -343,7 +393,9 @@
 
             line-height: 1.7;
 
-            color: rgba(0,0,0,0.65);
+            color: rgba(0, 0, 0, 0.65);
+
+            min-width: 0;
         }
 
 
@@ -366,7 +418,9 @@
 
             letter-spacing: -7px;
 
-            max-width: 1200px;
+            max-width: 100%;
+
+            overflow-wrap: break-word;
         }
 
         .contact-bottom {
@@ -377,6 +431,9 @@
             align-items: flex-end;
 
             gap: 50px;
+
+            width: 100%;
+            max-width: 100%;
         }
 
         .contact-text {
@@ -386,7 +443,7 @@
 
             line-height: 1.5;
 
-            color: rgba(255,255,255,0.65);
+            color: rgba(255, 255, 255, 0.65);
         }
 
         .contact-links {
@@ -395,6 +452,8 @@
             gap: 30px;
 
             flex-wrap: wrap;
+
+            max-width: 100%;
         }
 
         .contact-links a {
@@ -406,7 +465,7 @@
 
             letter-spacing: 2px;
 
-            border-bottom: 1px solid rgba(255,255,255,0.4);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 
             padding-bottom: 5px;
 
@@ -455,6 +514,15 @@
 
         @media (max-width: 700px) {
 
+            html,
+            body {
+                width: 100%;
+                max-width: 100%;
+
+                overflow-x: hidden;
+            }
+
+
             /* VIDEO */
 
             .video-desktop {
@@ -469,39 +537,71 @@
             /* NAV */
 
             nav {
-                padding: 25px 22px;
+                width: 100%;
+                max-width: 100%;
+
+                padding: 25px 20px;
+
+                overflow: hidden;
             }
 
             .logo {
-                font-size: 18px;
-                letter-spacing: 3px;
+                font-size: 17px;
+
+                letter-spacing: 2.5px;
             }
 
             .menu {
-                gap: 14px;
+                gap: 11px;
+
+                min-width: 0;
             }
 
             .menu a {
-                font-size: 9px;
-                letter-spacing: 1.2px;
+                font-size: 8px;
+
+                letter-spacing: 1px;
+
+                white-space: nowrap;
             }
 
 
             /* HERO */
 
             .hero {
+                width: 100%;
+                max-width: 100%;
+
                 min-height: 100svh;
+
+                overflow: hidden;
+            }
+
+            .hero-video {
+                width: 100%;
+                height: 100%;
+
+                max-width: none;
+
+                object-fit: cover;
             }
 
             .hero-content {
                 left: 22px;
                 right: 22px;
+
                 bottom: 40px;
+
+                width: auto;
+                max-width: none;
             }
 
             .hero-title {
-                font-size: clamp(65px, 25vw, 120px);
+                font-size: clamp(60px, 24vw, 110px);
+
                 letter-spacing: -4px;
+
+                max-width: 100%;
             }
 
             .hero-subtitle {
@@ -509,9 +609,11 @@
 
                 font-size: 9px;
 
-                letter-spacing: 2.5px;
+                letter-spacing: 2px;
 
                 line-height: 1.5;
+
+                max-width: 100%;
             }
 
             .scroll {
@@ -522,15 +624,22 @@
             /* SECTIONS */
 
             .section {
+                width: 100%;
+                max-width: 100%;
+
                 min-height: auto;
 
                 padding: 120px 22px 80px;
+
+                overflow: hidden;
             }
 
             .section-title {
-                font-size: clamp(55px, 20vw, 100px);
+                font-size: clamp(55px, 19vw, 95px);
 
                 letter-spacing: -3px;
+
+                max-width: 100%;
             }
 
 
@@ -539,14 +648,19 @@
             .work-intro {
                 margin-top: 40px;
 
+                width: 100%;
+                max-width: 100%;
+
                 font-size: 18px;
             }
 
             .work-placeholder {
                 margin-top: 60px;
 
-                height: 60vh;
+                width: 100%;
+                max-width: 100%;
 
+                height: 60vh;
                 min-height: 450px;
 
                 text-align: center;
@@ -558,19 +672,32 @@
             /* ABOUT */
 
             .about-content {
-                grid-template-columns: 1fr;
+                grid-template-columns: minmax(0, 1fr);
 
                 gap: 45px;
 
                 margin-top: 60px;
+
+                width: 100%;
+                max-width: 100%;
             }
 
             .about-large-text {
+                width: 100%;
+                max-width: 100%;
+
                 font-size: 34px;
+
+                overflow-wrap: break-word;
             }
 
             .about-text {
+                width: 100%;
+                max-width: 100%;
+
                 font-size: 16px;
+
+                overflow-wrap: break-word;
             }
 
 
@@ -581,9 +708,14 @@
             }
 
             .contact-title {
-                font-size: clamp(60px, 20vw, 100px);
+                font-size: clamp(52px, 17vw, 90px);
 
                 letter-spacing: -4px;
+
+                width: 100%;
+                max-width: 100%;
+
+                overflow-wrap: break-word;
             }
 
             .contact-bottom {
@@ -594,9 +726,15 @@
                 align-items: flex-start;
 
                 gap: 50px;
+
+                width: 100%;
+                max-width: 100%;
             }
 
             .contact-text {
+                width: 100%;
+                max-width: 100%;
+
                 font-size: 17px;
             }
 
@@ -604,6 +742,9 @@
                 flex-direction: column;
 
                 gap: 20px;
+
+                width: 100%;
+                max-width: 100%;
             }
 
         }
@@ -615,16 +756,37 @@
 
         @media (max-width: 430px) {
 
+            nav {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .logo {
+                font-size: 16px;
+                letter-spacing: 2px;
+            }
+
             .menu {
-                gap: 10px;
+                gap: 8px;
             }
 
             .menu a {
-                font-size: 8px;
+                font-size: 7.5px;
+                letter-spacing: 0.7px;
+            }
+
+            .hero-content {
+                left: 18px;
+                right: 18px;
             }
 
             .hero-title {
-                font-size: 24vw;
+                font-size: 23vw;
+            }
+
+            .section {
+                padding-left: 18px;
+                padding-right: 18px;
             }
 
         }
@@ -871,11 +1033,6 @@
 
 
             <div class="contact-links">
-
-                <!--
-                Luego pondremos aquí
-                tus enlaces reales.
-                -->
 
                 <a href="#">
                     WHATSAPP
