@@ -9,9 +9,7 @@
 
     <style>
 
-        /* =========================================
-           RESET
-        ========================================= */
+        /* RESET */
 
         * {
             margin: 0;
@@ -41,9 +39,7 @@
         }
 
 
-        /* =========================================
-           NAVIGATION
-        ========================================= */
+        /* NAV */
 
         nav {
             position: fixed;
@@ -60,17 +56,12 @@
             padding: 35px 50px;
 
             z-index: 100;
-
-            transition:
-                background 0.3s ease,
-                padding 0.3s ease;
         }
 
         .menu {
             display: flex;
             align-items: center;
             gap: 40px;
-            flex-shrink: 0;
         }
 
         .menu a {
@@ -94,18 +85,15 @@
         }
 
 
-        /* =========================================
-           HERO
-        ========================================= */
+        /* HERO */
 
         .hero {
             position: relative;
 
             width: 100%;
-            max-width: 100%;
-
             height: 100vh;
             height: 100svh;
+
             min-height: 600px;
 
             overflow: hidden;
@@ -142,9 +130,6 @@
             position: absolute;
             inset: 0;
 
-            width: 100%;
-            height: 100%;
-
             background:
                 linear-gradient(
                     to bottom,
@@ -174,8 +159,6 @@
 
             line-height: 0.8;
             letter-spacing: -7px;
-
-            color: white;
 
             opacity: 0;
 
@@ -218,9 +201,7 @@
         }
 
 
-        /* =========================================
-           GENERAL SECTIONS
-        ========================================= */
+        /* GENERAL SECTIONS */
 
         .section {
             position: relative;
@@ -278,64 +259,37 @@
         }
 
 
-        /* Cada cliente */
-
-        .client-work {
-            width: 100%;
-            margin-top: 130px;
-        }
-
-        .client-header {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-
-            width: 100%;
-
-            margin-bottom: 40px;
-        }
-
-        .client-name {
-            font-size: clamp(24px, 3vw, 44px);
-
-            font-weight: 600;
-
-            letter-spacing: -1px;
-
-            white-space: nowrap;
-        }
-
-        .client-line {
-            width: 100%;
-            height: 1px;
-
-            background: rgba(255, 255, 255, 0.22);
-        }
-
-
-        /* Galería */
+        /*
+           GALERÍA DE WORK
+           3 COLUMNAS EN DESKTOP
+        */
 
         .work-grid {
+            width: 100%;
+
             display: grid;
 
             grid-template-columns:
-                repeat(2, minmax(0, 1fr));
+                repeat(3, minmax(0, 1fr));
 
-            gap: 30px;
+            gap: 24px;
 
-            width: 100%;
+            margin-top: 90px;
+
+            align-items: start;
         }
 
 
-        /* Contenedor de video */
-
         .work-video {
             width: 100%;
+
+            min-width: 0;
 
             background: #000;
 
             overflow: hidden;
         }
+
 
         .work-video video {
             display: block;
@@ -343,22 +297,13 @@
             width: 100%;
             height: auto;
 
+            max-width: 100%;
+
             background: #000;
         }
 
 
-        /* Si un cliente tiene número impar de videos,
-           el último ocupa todo el ancho */
-
-        .work-grid.three-videos
-        .work-video:last-child {
-            grid-column: 1 / -1;
-        }
-
-
-        /* =========================================
-           ABOUT
-        ========================================= */
+        /* ABOUT */
 
         #about {
             background: #f1f1ed;
@@ -377,7 +322,6 @@
             margin-top: 90px;
 
             width: 100%;
-            max-width: 100%;
         }
 
         .about-large-text {
@@ -385,8 +329,6 @@
 
             line-height: 1.05;
             letter-spacing: -2px;
-
-            min-width: 0;
         }
 
         .about-text {
@@ -396,17 +338,14 @@
             line-height: 1.7;
 
             color: rgba(0, 0, 0, 0.65);
-
-            min-width: 0;
         }
 
 
-        /* =========================================
-           CONTACT
-        ========================================= */
+        /* CONTACT */
 
         #contact {
             background: #050505;
+
             min-height: 100vh;
         }
 
@@ -429,9 +368,6 @@
 
             max-width: 500px;
         }
-
-
-        /* Redes */
 
         .social-links {
             display: flex;
@@ -482,9 +418,7 @@
         }
 
 
-        /* =========================================
-           ANIMATIONS
-        ========================================= */
+        /* ANIMATIONS */
 
         @keyframes fadeUp {
 
@@ -528,7 +462,7 @@
             }
 
 
-            /* VIDEO HERO */
+            /* HERO VIDEO */
 
             .video-desktop {
                 display: none;
@@ -542,9 +476,6 @@
             /* NAV */
 
             nav {
-                width: 100%;
-                max-width: 100%;
-
                 padding: 28px 22px;
 
                 justify-content: flex-end;
@@ -554,28 +485,19 @@
 
             .menu {
                 gap: 18px;
-                min-width: 0;
             }
 
             .menu a {
                 font-size: 11px;
-                font-weight: 600;
 
                 letter-spacing: 1.5px;
-
-                white-space: nowrap;
             }
 
 
             /* HERO */
 
             .hero {
-                width: 100%;
-                max-width: 100%;
-
                 min-height: 100svh;
-
-                overflow: hidden;
             }
 
             .hero-video {
@@ -602,8 +524,6 @@
 
                 letter-spacing: -4px;
 
-                max-width: 100%;
-
                 white-space: nowrap;
             }
 
@@ -614,8 +534,6 @@
 
                 letter-spacing: 2px;
                 line-height: 1.5;
-
-                max-width: 100%;
             }
 
             .scroll {
@@ -626,14 +544,9 @@
             /* SECTIONS */
 
             .section {
-                width: 100%;
-                max-width: 100%;
-
                 min-height: auto;
 
                 padding: 120px 22px 80px;
-
-                overflow: hidden;
             }
 
             .section-title {
@@ -643,9 +556,6 @@
                 letter-spacing: -3px;
 
                 width: 100%;
-                max-width: 100%;
-
-                overflow-wrap: normal;
 
                 word-break: keep-all;
 
@@ -659,48 +569,36 @@
                 margin-top: 40px;
 
                 width: 100%;
-                max-width: 100%;
 
                 font-size: 18px;
             }
 
-            .client-work {
-                margin-top: 85px;
-            }
 
-            .client-header {
-                gap: 15px;
-
-                margin-bottom: 25px;
-            }
-
-            .client-name {
-                font-size: 24px;
-
-                letter-spacing: -0.5px;
-            }
+            /*
+               2 COLUMNAS EN CELULAR
+            */
 
             .work-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
 
-                gap: 25px;
+                gap: 12px;
+
+                margin-top: 60px;
             }
 
-            .work-grid.three-videos
-            .work-video:last-child {
-                grid-column: auto;
-            }
 
             .work-video {
                 width: 100%;
-                max-width: 100%;
+                min-width: 0;
             }
+
 
             .work-video video {
                 width: 100%;
-                max-width: 100%;
-
                 height: auto;
+
+                max-width: 100%;
             }
 
 
@@ -713,31 +611,14 @@
                 gap: 45px;
 
                 margin-top: 60px;
-
-                width: 100%;
-                max-width: 100%;
             }
 
             .about-large-text {
-                width: 100%;
-                max-width: 100%;
-
                 font-size: 34px;
-
-                overflow-wrap: normal;
-
-                word-break: normal;
             }
 
             .about-text {
-                width: 100%;
-                max-width: 100%;
-
                 font-size: 16px;
-
-                overflow-wrap: normal;
-
-                word-break: normal;
             }
 
 
@@ -754,9 +635,6 @@
                 letter-spacing: -3px;
 
                 width: 100%;
-                max-width: 100%;
-
-                overflow-wrap: normal;
 
                 word-break: keep-all;
 
@@ -791,9 +669,7 @@
         }
 
 
-        /* =========================================
-           VERY SMALL PHONES
-        ========================================= */
+        /* VERY SMALL PHONES */
 
         @media (max-width: 430px) {
 
@@ -808,6 +684,7 @@
 
             .menu a {
                 font-size: 10.5px;
+
                 letter-spacing: 1.2px;
             }
 
@@ -827,25 +704,26 @@
 
             .section-title {
                 font-size: 14.5vw;
+
                 letter-spacing: -2.5px;
             }
 
             .contact-title {
                 font-size: 12.8vw;
+
                 letter-spacing: -2.5px;
             }
 
         }
 
 
-        /* =========================================
-           ACCESSIBILITY
-        ========================================= */
+        /* ACCESSIBILITY */
 
         @media (prefers-reduced-motion: reduce) {
 
             * {
                 animation-duration: 0.01ms !important;
+
                 animation-iteration-count: 1 !important;
 
                 scroll-behavior: auto !important;
@@ -861,9 +739,7 @@
 <body>
 
 
-    <!-- =========================================
-         NAVIGATION
-    ========================================== -->
+    <!-- NAV -->
 
     <nav>
 
@@ -893,8 +769,6 @@
     <section class="hero">
 
 
-        <!-- DESKTOP VIDEO -->
-
         <video
             class="hero-video video-desktop"
             autoplay
@@ -911,8 +785,6 @@
 
         </video>
 
-
-        <!-- MOBILE VIDEO -->
 
         <video
             class="hero-video video-mobile"
@@ -964,6 +836,7 @@
         id="work"
     >
 
+
         <div class="section-number">
             01 / WORK
         </div>
@@ -983,239 +856,190 @@
         </p>
 
 
-        <!-- =====================================
-             COOPENAE
-        ====================================== -->
+        <!-- GALERÍA -->
 
-        <div class="client-work">
+        <div class="work-grid">
 
-            <div class="client-header">
 
-                <h3 class="client-name">
-                    COOPENAE
-                </h3>
+            <!-- COOPENAE 01 -->
 
-                <div class="client-line"></div>
+            <div class="work-video">
+
+                <video
+                    controls
+                    playsinline
+                    preload="metadata"
+                >
+
+                    <source
+                        src="Coopenae_01.mp4"
+                        type="video/mp4"
+                    >
+
+                </video>
 
             </div>
 
 
-            <div class="work-grid three-videos">
+            <!-- COOPENAE 02 -->
 
+            <div class="work-video">
 
-                <div class="work-video">
+                <video
+                    controls
+                    playsinline
+                    preload="metadata"
+                >
 
-                    <video
-                        controls
-                        playsinline
-                        preload="metadata"
+                    <source
+                        src="Coopenae_02_2.mp4"
+                        type="video/mp4"
                     >
 
-                        <source
-                            src="Coopenae_01.mp4"
-                            type="video/mp4"
-                        >
-
-                    </video>
-
-                </div>
-
-
-                <div class="work-video">
-
-                    <video
-                        controls
-                        playsinline
-                        preload="metadata"
-                    >
-
-                        <source
-                            src="Coopenae_02_2.mp4"
-                            type="video/mp4"
-                        >
-
-                    </video>
-
-                </div>
-
-
-                <div class="work-video">
-
-                    <video
-                        controls
-                        playsinline
-                        preload="metadata"
-                    >
-
-                        <source
-                            src="Coopenae_03.mp4"
-                            type="video/mp4"
-                        >
-
-                    </video>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-
-        <!-- =====================================
-             DENNY'S
-        ====================================== -->
-
-        <div class="client-work">
-
-            <div class="client-header">
-
-                <h3 class="client-name">
-                    DENNY'S
-                </h3>
-
-                <div class="client-line"></div>
+                </video>
 
             </div>
 
 
-            <div class="work-grid">
+            <!-- COOPENAE 03 -->
 
+            <div class="work-video">
 
-                <div class="work-video">
+                <video
+                    controls
+                    playsinline
+                    preload="metadata"
+                >
 
-                    <video
-                        controls
-                        playsinline
-                        preload="metadata"
+                    <source
+                        src="Coopenae_03.mp4"
+                        type="video/mp4"
                     >
 
-                        <source
-                            src="Dennys01.mp4"
-                            type="video/mp4"
-                        >
-
-                    </video>
-
-                </div>
-
-
-                <div class="work-video">
-
-                    <video
-                        controls
-                        playsinline
-                        preload="metadata"
-                    >
-
-                        <source
-                            src="Dennys2.mp4"
-                            type="video/mp4"
-                        >
-
-                    </video>
-
-                </div>
-
-
-                <div class="work-video">
-
-                    <video
-                        controls
-                        playsinline
-                        preload="metadata"
-                    >
-
-                        <source
-                            src="Dennys3.mp4"
-                            type="video/mp4"
-                        >
-
-                    </video>
-
-                </div>
-
-
-                <div class="work-video">
-
-                    <video
-                        controls
-                        playsinline
-                        preload="metadata"
-                    >
-
-                        <source
-                            src="TodosLosPlatos.mp4"
-                            type="video/mp4"
-                        >
-
-                    </video>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-
-        <!-- =====================================
-             DR. CASTRILLO
-        ====================================== -->
-
-        <div class="client-work">
-
-            <div class="client-header">
-
-                <h3 class="client-name">
-                    DR. CASTRILLO
-                </h3>
-
-                <div class="client-line"></div>
+                </video>
 
             </div>
 
 
-            <div class="work-grid">
+            <!-- DENNYS 01 -->
 
+            <div class="work-video">
 
-                <div class="work-video">
+                <video
+                    controls
+                    playsinline
+                    preload="metadata"
+                >
 
-                    <video
-                        controls
-                        playsinline
-                        preload="metadata"
+                    <source
+                        src="Dennys01.mp4"
+                        type="video/mp4"
                     >
 
-                        <source
-                            src="Drcastillo%20Aura-1.mp4"
-                            type="video/mp4"
-                        >
-
-                    </video>
-
-                </div>
-
-
-                <div class="work-video">
-
-                    <video
-                        controls
-                        playsinline
-                        preload="metadata"
-                    >
-
-                        <source
-                            src="Drcastillo%20Aura-2.mp4"
-                            type="video/mp4"
-                        >
-
-                    </video>
-
-                </div>
-
+                </video>
 
             </div>
+
+
+            <!-- DENNYS 02 -->
+
+            <div class="work-video">
+
+                <video
+                    controls
+                    playsinline
+                    preload="metadata"
+                >
+
+                    <source
+                        src="Dennys2.mp4"
+                        type="video/mp4"
+                    >
+
+                </video>
+
+            </div>
+
+
+            <!-- DENNYS 03 -->
+
+            <div class="work-video">
+
+                <video
+                    controls
+                    playsinline
+                    preload="metadata"
+                >
+
+                    <source
+                        src="Dennys3.mp4"
+                        type="video/mp4"
+                    >
+
+                </video>
+
+            </div>
+
+
+            <!-- TODOS LOS PLATOS -->
+
+            <div class="work-video">
+
+                <video
+                    controls
+                    playsinline
+                    preload="metadata"
+                >
+
+                    <source
+                        src="TodosLosPlatos.mp4"
+                        type="video/mp4"
+                    >
+
+                </video>
+
+            </div>
+
+
+            <!-- DR CASTRILLO 01 -->
+
+            <div class="work-video">
+
+                <video
+                    controls
+                    playsinline
+                    preload="metadata"
+                >
+
+                    <source
+                        src="Drcastillo%20Aura-1.mp4"
+                        type="video/mp4"
+                    >
+
+                </video>
+
+            </div>
+
+
+            <!-- DR CASTRILLO 02 -->
+
+            <div class="work-video">
+
+                <video
+                    controls
+                    playsinline
+                    preload="metadata"
+                >
+
+                    <source
+                        src="Drcastillo%20Aura-2.mp4"
+                        type="video/mp4"
+                    >
+
+                </video>
+
+            </div>
+
 
         </div>
 
@@ -1231,6 +1055,7 @@
         class="section"
         id="about"
     >
+
 
         <div class="section-number">
             02 / ABOUT
@@ -1284,6 +1109,7 @@
         class="section"
         id="contact"
     >
+
 
         <div class="section-number">
             03 / CONTACT
