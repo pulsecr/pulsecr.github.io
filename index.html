@@ -348,7 +348,6 @@
 
         #contact {
             background: #050505;
-
             min-height: 100vh;
         }
 
@@ -372,13 +371,16 @@
             max-width: 500px;
         }
 
+
+        /* WHATSAPP */
+
         .social-links {
             display: flex;
             align-items: center;
 
             gap: 28px;
 
-            margin-top: 60px;
+            margin-top: 45px;
         }
 
         .social-link {
@@ -418,6 +420,187 @@
             color: #050505;
 
             border-color: white;
+        }
+
+
+        /* CONTACT FORM */
+
+        .contact-form-container {
+            width: 100%;
+            max-width: 950px;
+
+            margin-top: 90px;
+            padding-top: 70px;
+
+            border-top: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .form-title {
+            font-size: 13px;
+            font-weight: 600;
+
+            letter-spacing: 3px;
+            text-transform: uppercase;
+
+            margin-bottom: 50px;
+
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .contact-form {
+            width: 100%;
+        }
+
+        .form-row {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr)
+                minmax(0, 1fr);
+
+            gap: 35px;
+        }
+
+        .form-group {
+            width: 100%;
+
+            margin-bottom: 40px;
+        }
+
+        .form-group label {
+            display: block;
+
+            margin-bottom: 13px;
+
+            font-size: 10px;
+            font-weight: 600;
+
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            color: rgba(255, 255, 255, 0.55);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+
+            padding: 15px 0;
+
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+
+            color: white;
+            background: transparent;
+
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+
+            border-radius: 0;
+
+            outline: none;
+
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-bottom-color: white;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.25);
+        }
+
+        .form-group textarea {
+            min-height: 140px;
+
+            resize: vertical;
+
+            line-height: 1.5;
+        }
+
+        .submit-button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+
+            min-width: 220px;
+
+            padding: 20px 30px;
+
+            margin-top: 10px;
+
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+
+            letter-spacing: 2px;
+
+            color: #050505;
+            background: #f1f1ed;
+
+            border: 1px solid #f1f1ed;
+
+            cursor: pointer;
+
+            transition:
+                background 0.3s ease,
+                color 0.3s ease,
+                transform 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background: transparent;
+            color: white;
+
+            transform: translateY(-3px);
+        }
+
+        .submit-button:disabled {
+            opacity: 0.5;
+            cursor: default;
+            transform: none;
+        }
+
+
+        /* SUCCESS MESSAGE */
+
+        .form-success {
+            display: none;
+
+            max-width: 700px;
+
+            padding: 45px 0;
+        }
+
+        .form-success h3 {
+            margin-bottom: 18px;
+
+            font-size: clamp(26px, 3vw, 42px);
+            letter-spacing: -1px;
+        }
+
+        .form-success p {
+            font-size: 18px;
+            line-height: 1.6;
+
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+
+        /* ERROR MESSAGE */
+
+        .form-error {
+            display: none;
+
+            margin-top: 25px;
+
+            font-size: 14px;
+            line-height: 1.5;
+
+            color: rgba(255, 255, 255, 0.7);
         }
 
 
@@ -478,6 +661,9 @@
                 max-width: 100%;
                 overflow-x: hidden;
             }
+
+
+            /* HERO */
 
             .video-desktop {
                 display: none;
@@ -658,9 +844,7 @@
             }
 
             .social-links {
-                margin-top: 45px;
-
-                gap: 20px;
+                margin-top: 35px;
             }
 
             .social-link {
@@ -671,6 +855,41 @@
             .social-link svg {
                 width: 27px;
                 height: 27px;
+            }
+
+
+            /* FORM MOBILE */
+
+            .contact-form-container {
+                margin-top: 70px;
+                padding-top: 55px;
+            }
+
+            .form-title {
+                margin-bottom: 40px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+
+                gap: 0;
+            }
+
+            .form-group {
+                margin-bottom: 32px;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                font-size: 16px;
+            }
+
+            .submit-button {
+                width: 100%;
+
+                min-width: 0;
+
+                padding: 19px 20px;
             }
 
         }
@@ -749,7 +968,9 @@
 <body>
 
 
-    <!-- NAV -->
+    <!-- =========================================
+         NAV
+    ========================================== -->
 
     <nav>
 
@@ -1099,10 +1320,9 @@
         </p>
 
 
+        <!-- WHATSAPP -->
+
         <div class="social-links">
-
-
-            <!-- WHATSAPP -->
 
             <a
                 class="social-link"
@@ -1124,34 +1344,302 @@
 
             </a>
 
+        </div>
 
-            <!-- INSTAGRAM -->
 
-            <a
-                class="social-link"
-                href="https://www.instagram.com/pulsemediacr/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram de Pulse Media"
-                title="Instagram"
+        <!-- =====================================
+             CONTACT FORM
+        ====================================== -->
+
+        <div class="contact-form-container">
+
+
+            <div class="form-title">
+                CONTANOS SOBRE TU PROYECTO
+            </div>
+
+
+            <form
+                id="contactForm"
+                class="contact-form"
             >
 
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
+
+                <!-- NOMBRE -->
+
+                <div class="form-group">
+
+                    <label for="nombre">
+                        Nombre completo
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="Nombre completo"
+                        placeholder="Tu nombre"
+                        autocomplete="name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- PAÍS + TELÉFONO -->
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label for="pais">
+                            País
+                        </label>
+
+                        <input
+                            type="text"
+                            id="pais"
+                            name="País"
+                            placeholder="Costa Rica"
+                            autocomplete="country-name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="telefono">
+                            Número de teléfono
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="telefono"
+                            name="Teléfono"
+                            placeholder="+506"
+                            autocomplete="tel"
+                            required
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Correo electrónico
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="nombre@correo.com"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- MENSAJE -->
+
+                <div class="form-group">
+
+                    <label for="mensaje">
+                        Mensaje
+                    </label>
+
+                    <textarea
+                        id="mensaje"
+                        name="Mensaje"
+                        placeholder="Contanos un poco sobre tu proyecto..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <!-- CONFIGURACIÓN FORMSUBMIT -->
+
+                <input
+                    type="hidden"
+                    name="_subject"
+                    value="Nueva solicitud desde Pulse Media"
                 >
 
-                    <path d="M7.75 2h8.5C19.425 2 22 4.575 22 7.75v8.5C22 19.425 19.425 22 16.25 22h-8.5C4.575 22 2 19.425 2 16.25v-8.5C2 4.575 4.575 2 7.75 2zm0 2C5.679 4 4 5.679 4 7.75v8.5C4 18.321 5.679 20 7.75 20h8.5C18.321 20 20 18.321 20 16.25v-8.5C20 5.679 18.321 4 16.25 4h-8.5zm8.75 1.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+                <input
+                    type="hidden"
+                    name="_template"
+                    value="table"
+                >
 
-                </svg>
 
-            </a>
+                <!-- BOTÓN -->
+
+                <button
+                    type="submit"
+                    class="submit-button"
+                    id="submitButton"
+                >
+                    ENVIAR MENSAJE →
+                </button>
+
+
+                <!-- ERROR -->
+
+                <div
+                    class="form-error"
+                    id="formError"
+                >
+                    No pudimos enviar el mensaje. Por favor intentá nuevamente o contactanos por WhatsApp.
+                </div>
+
+
+            </form>
+
+
+            <!-- MENSAJE DE ÉXITO -->
+
+            <div
+                class="form-success"
+                id="formSuccess"
+            >
+
+                <h3>
+                    MENSAJE ENVIADO
+                </h3>
+
+                <p>
+                    Nuestro equipo revisará la solicitud y se pondrá en contacto con usted.
+                </p>
+
+            </div>
 
 
         </div>
 
 
     </section>
+
+
+    <!-- =========================================
+         FORM SCRIPT
+    ========================================== -->
+
+    <script>
+
+        const contactForm =
+            document.getElementById("contactForm");
+
+        const submitButton =
+            document.getElementById("submitButton");
+
+        const formSuccess =
+            document.getElementById("formSuccess");
+
+        const formError =
+            document.getElementById("formError");
+
+
+        contactForm.addEventListener(
+            "submit",
+            async function(event) {
+
+                event.preventDefault();
+
+
+                /* Ocultar error anterior */
+
+                formError.style.display = "none";
+
+
+                /* Cambiar botón mientras envía */
+
+                submitButton.disabled = true;
+
+                submitButton.textContent =
+                    "ENVIANDO...";
+
+
+                const formData =
+                    new FormData(contactForm);
+
+
+                try {
+
+                    const response =
+                        await fetch(
+                            "https://formsubmit.co/ajax/pulsemediacr@gmail.com",
+                            {
+                                method: "POST",
+
+                                body: formData,
+
+                                headers: {
+                                    "Accept": "application/json"
+                                }
+                            }
+                        );
+
+
+                    if (!response.ok) {
+                        throw new Error(
+                            "Error enviando formulario"
+                        );
+                    }
+
+
+                    /* Limpiar formulario */
+
+                    contactForm.reset();
+
+
+                    /* Ocultar formulario */
+
+                    contactForm.style.display =
+                        "none";
+
+
+                    /* Mostrar confirmación */
+
+                    formSuccess.style.display =
+                        "block";
+
+
+                }
+
+                catch (error) {
+
+
+                    /* Mostrar error */
+
+                    formError.style.display =
+                        "block";
+
+
+                    /* Restaurar botón */
+
+                    submitButton.disabled =
+                        false;
+
+                    submitButton.textContent =
+                        "ENVIAR MENSAJE →";
+
+
+                }
+
+            }
+        );
+
+    </script>
 
 
 </body>
