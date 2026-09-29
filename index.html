@@ -281,7 +281,12 @@
             align-items: start;
         }
 
+
+        /* PROJECT CARD */
+
         .work-video {
+            position: relative;
+
             width: 100%;
             min-width: 0;
 
@@ -290,8 +295,90 @@
             overflow: hidden;
         }
 
-        .work-video video {
+
+        /* PORTADA */
+
+        .video-cover {
+            position: relative;
+
             display: block;
+
+            width: 100%;
+
+            border: 0;
+            padding: 0;
+
+            background: #000;
+
+            cursor: pointer;
+
+            overflow: hidden;
+        }
+
+        .video-cover img {
+            display: block;
+
+            width: 100%;
+            height: auto;
+
+            transition:
+                transform 0.5s ease,
+                opacity 0.4s ease;
+        }
+
+
+        /* HOVER DESKTOP */
+
+        .video-cover:hover img {
+            transform: scale(1.025);
+            opacity: 0.88;
+        }
+
+
+        /* INDICADOR MUY SUTIL AL HACER HOVER */
+
+        .video-cover::after {
+            content: "VIEW";
+
+            position: absolute;
+
+            left: 50%;
+            top: 50%;
+
+            transform:
+                translate(-50%, -50%)
+                translateY(8px);
+
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+
+            letter-spacing: 3px;
+
+            color: white;
+
+            opacity: 0;
+
+            transition:
+                opacity 0.3s ease,
+                transform 0.3s ease;
+
+            pointer-events: none;
+        }
+
+        .video-cover:hover::after {
+            opacity: 1;
+
+            transform:
+                translate(-50%, -50%)
+                translateY(0);
+        }
+
+
+        /* VIDEO REAL */
+
+        .project-video {
+            display: none;
 
             width: 100%;
             height: auto;
@@ -299,6 +386,14 @@
             max-width: 100%;
 
             background: #000;
+        }
+
+        .work-video.is-playing .video-cover {
+            display: none;
+        }
+
+        .work-video.is-playing .project-video {
+            display: block;
         }
 
 
@@ -423,7 +518,9 @@
         }
 
 
-        /* CONTACT FORM */
+        /* =========================================
+           CONTACT FORM
+        ========================================= */
 
         .contact-form-container {
             width: 100%;
@@ -560,12 +657,14 @@
 
         .submit-button:disabled {
             opacity: 0.5;
+
             cursor: default;
+
             transform: none;
         }
 
 
-        /* SUCCESS MESSAGE */
+        /* SUCCESS */
 
         .form-success {
             display: none;
@@ -579,6 +678,7 @@
             margin-bottom: 18px;
 
             font-size: clamp(26px, 3vw, 42px);
+
             letter-spacing: -1px;
         }
 
@@ -590,7 +690,7 @@
         }
 
 
-        /* ERROR MESSAGE */
+        /* ERROR */
 
         .form-error {
             display: none;
@@ -659,6 +759,7 @@
             body {
                 width: 100%;
                 max-width: 100%;
+
                 overflow-x: hidden;
             }
 
@@ -787,7 +888,20 @@
                 min-width: 0;
             }
 
-            .work-video video {
+            .video-cover {
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            .video-cover:hover img {
+                transform: none;
+                opacity: 1;
+            }
+
+            .video-cover::after {
+                display: none;
+            }
+
+            .project-video {
                 width: 100%;
                 height: auto;
 
@@ -858,7 +972,7 @@
             }
 
 
-            /* FORM MOBILE */
+            /* FORM */
 
             .contact-form-container {
                 margin-top: 70px;
@@ -1084,11 +1198,29 @@
         <div class="work-grid">
 
 
-            <!-- VIDEO 01 -->
+            <!-- =================================
+                 COOPENAE 01
+            ================================== -->
 
             <div class="work-video">
 
+                <button
+                    class="video-cover"
+                    type="button"
+                    aria-label="Reproducir video"
+                >
+
+                    <img
+                        src="Coopenae_01_Portada.png"
+                        alt="Proyecto audiovisual Coopenae"
+                        loading="lazy"
+                    >
+
+                </button>
+
+
                 <video
+                    class="project-video"
                     controls
                     playsinline
                     preload="metadata"
@@ -1104,15 +1236,32 @@
             </div>
 
 
-            <!-- VIDEO 02 - CON PORTADA -->
+            <!-- =================================
+                 COOPENAE 03
+            ================================== -->
 
             <div class="work-video">
 
+                <button
+                    class="video-cover"
+                    type="button"
+                    aria-label="Reproducir video"
+                >
+
+                    <img
+                        src="Coopenae_03_Portada.png"
+                        alt="Proyecto audiovisual Coopenae"
+                        loading="lazy"
+                    >
+
+                </button>
+
+
                 <video
+                    class="project-video"
                     controls
                     playsinline
                     preload="metadata"
-                    poster="Coopenae_03_Portada.png"
                 >
 
                     <source
@@ -1125,11 +1274,29 @@
             </div>
 
 
-            <!-- VIDEO 03 -->
+            <!-- =================================
+                 DENNYS 01
+            ================================== -->
 
             <div class="work-video">
 
+                <button
+                    class="video-cover"
+                    type="button"
+                    aria-label="Reproducir video"
+                >
+
+                    <img
+                        src="Dennys01_Portada.jpg"
+                        alt="Proyecto audiovisual Denny's"
+                        loading="lazy"
+                    >
+
+                </button>
+
+
                 <video
+                    class="project-video"
                     controls
                     playsinline
                     preload="metadata"
@@ -1145,11 +1312,29 @@
             </div>
 
 
-            <!-- VIDEO 04 -->
+            <!-- =================================
+                 DENNYS 02
+            ================================== -->
 
             <div class="work-video">
 
+                <button
+                    class="video-cover"
+                    type="button"
+                    aria-label="Reproducir video"
+                >
+
+                    <img
+                        src="Dennys2_Portada.jpg"
+                        alt="Proyecto audiovisual Denny's"
+                        loading="lazy"
+                    >
+
+                </button>
+
+
                 <video
+                    class="project-video"
                     controls
                     playsinline
                     preload="metadata"
@@ -1165,11 +1350,29 @@
             </div>
 
 
-            <!-- VIDEO 05 -->
+            <!-- =================================
+                 TODOS LOS PLATOS
+            ================================== -->
 
             <div class="work-video">
 
+                <button
+                    class="video-cover"
+                    type="button"
+                    aria-label="Reproducir video"
+                >
+
+                    <img
+                        src="TodosLosPlatos_Portada.jpg"
+                        alt="Proyecto audiovisual gastronómico"
+                        loading="lazy"
+                    >
+
+                </button>
+
+
                 <video
+                    class="project-video"
                     controls
                     playsinline
                     preload="metadata"
@@ -1185,15 +1388,32 @@
             </div>
 
 
-            <!-- VIDEO 06 - CON PORTADA -->
+            <!-- =================================
+                 DR CASTRILLO 01
+            ================================== -->
 
             <div class="work-video">
 
+                <button
+                    class="video-cover"
+                    type="button"
+                    aria-label="Reproducir video"
+                >
+
+                    <img
+                        src="DrCastrillo01_Portada.png"
+                        alt="Proyecto audiovisual Dr. Castrillo"
+                        loading="lazy"
+                    >
+
+                </button>
+
+
                 <video
+                    class="project-video"
                     controls
                     playsinline
                     preload="metadata"
-                    poster="DrCastrillo01_Portada.png"
                 >
 
                     <source
@@ -1206,11 +1426,29 @@
             </div>
 
 
-            <!-- VIDEO 07 -->
+            <!-- =================================
+                 DR CASTRILLO 02
+            ================================== -->
 
             <div class="work-video">
 
+                <button
+                    class="video-cover"
+                    type="button"
+                    aria-label="Reproducir video"
+                >
+
+                    <img
+                        src="DrCastrillo02_Portada.jpg"
+                        alt="Proyecto audiovisual Dr. Castrillo"
+                        loading="lazy"
+                    >
+
+                </button>
+
+
                 <video
+                    class="project-video"
                     controls
                     playsinline
                     preload="metadata"
@@ -1376,7 +1614,7 @@
                     <input
                         type="text"
                         id="nombre"
-                        name="Nombre completo"
+                        name="Nombre_completo"
                         placeholder="Tu nombre"
                         autocomplete="name"
                         required
@@ -1467,7 +1705,7 @@
                 </div>
 
 
-                <!-- CONFIGURACIÓN FORMSUBMIT -->
+                <!-- FORMSUBMIT -->
 
                 <input
                     type="hidden"
@@ -1506,7 +1744,7 @@
             </form>
 
 
-            <!-- MENSAJE DE ÉXITO -->
+            <!-- SUCCESS -->
 
             <div
                 class="form-success"
@@ -1531,10 +1769,77 @@
 
 
     <!-- =========================================
-         FORM SCRIPT
+         SCRIPTS
     ========================================== -->
 
     <script>
+
+        /* =========================================
+           PROJECT VIDEOS
+        ========================================= */
+
+        const videoCovers =
+            document.querySelectorAll(".video-cover");
+
+
+        videoCovers.forEach(function(cover) {
+
+            cover.addEventListener(
+                "click",
+                function() {
+
+                    const card =
+                        cover.closest(".work-video");
+
+                    const video =
+                        card.querySelector(".project-video");
+
+
+                    /* Pausar cualquier otro video */
+
+                    document
+                        .querySelectorAll(".project-video")
+                        .forEach(function(otherVideo) {
+
+                            if (
+                                otherVideo !== video &&
+                                !otherVideo.paused
+                            ) {
+
+                                otherVideo.pause();
+
+                            }
+
+                        });
+
+
+                    /* Mostrar el video */
+
+                    card.classList.add("is-playing");
+
+
+                    /* Reproducir */
+
+                    video.play().catch(function() {
+
+                        /*
+                        Si el navegador bloquea la
+                        reproducción automática,
+                        el video queda visible y el
+                        usuario puede pulsar Play.
+                        */
+
+                    });
+
+                }
+            );
+
+        });
+
+
+        /* =========================================
+           CONTACT FORM
+        ========================================= */
 
         const contactForm =
             document.getElementById("contactForm");
@@ -1556,14 +1861,12 @@
                 event.preventDefault();
 
 
-                /* Ocultar error anterior */
+                formError.style.display =
+                    "none";
 
-                formError.style.display = "none";
 
-
-                /* Cambiar botón mientras envía */
-
-                submitButton.disabled = true;
+                submitButton.disabled =
+                    true;
 
                 submitButton.textContent =
                     "ENVIANDO...";
@@ -1591,24 +1894,20 @@
 
 
                     if (!response.ok) {
+
                         throw new Error(
                             "Error enviando formulario"
                         );
+
                     }
 
-
-                    /* Limpiar formulario */
 
                     contactForm.reset();
 
 
-                    /* Ocultar formulario */
-
                     contactForm.style.display =
                         "none";
 
-
-                    /* Mostrar confirmación */
 
                     formSuccess.style.display =
                         "block";
@@ -1619,13 +1918,9 @@
                 catch (error) {
 
 
-                    /* Mostrar error */
-
                     formError.style.display =
                         "block";
 
-
-                    /* Restaurar botón */
 
                     submitButton.disabled =
                         false;
