@@ -40,6 +40,10 @@
             max-width: 100%;
         }
 
+        button {
+            font-family: inherit;
+        }
+
 
         /* =========================================
            NAV
@@ -266,6 +270,9 @@
             color: rgba(255, 255, 255, 0.7);
         }
 
+
+        /* VIDEO GRID */
+
         .work-grid {
             width: 100%;
 
@@ -281,9 +288,6 @@
             align-items: start;
         }
 
-
-        /* PROJECT CARD */
-
         .work-video {
             position: relative;
 
@@ -296,7 +300,7 @@
         }
 
 
-        /* PORTADA */
+        /* VIDEO COVER */
 
         .video-cover {
             position: relative;
@@ -326,16 +330,10 @@
                 opacity 0.4s ease;
         }
 
-
-        /* HOVER DESKTOP */
-
         .video-cover:hover img {
             transform: scale(1.025);
             opacity: 0.88;
         }
-
-
-        /* INDICADOR MUY SUTIL AL HACER HOVER */
 
         .video-cover::after {
             content: "VIEW";
@@ -349,7 +347,6 @@
                 translate(-50%, -50%)
                 translateY(8px);
 
-            font-family: Arial, Helvetica, sans-serif;
             font-size: 10px;
             font-weight: 600;
 
@@ -375,7 +372,7 @@
         }
 
 
-        /* VIDEO REAL */
+        /* VIDEO */
 
         .project-video {
             display: none;
@@ -394,6 +391,379 @@
 
         .work-video.is-playing .project-video {
             display: block;
+        }
+
+
+        /* =========================================
+           PHOTOGRAPHY
+        ========================================= */
+
+        .photography-section {
+            width: 100%;
+
+            margin-top: 150px;
+            padding-top: 80px;
+
+            border-top: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .photography-label {
+            margin-bottom: 40px;
+
+            font-size: 11px;
+            font-weight: 600;
+
+            letter-spacing: 3px;
+
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .photography-title {
+            margin-bottom: 65px;
+
+            font-size: clamp(50px, 7vw, 105px);
+            line-height: 0.9;
+
+            letter-spacing: -4px;
+
+            font-weight: 700;
+        }
+
+
+        /* PROJECTS GRID */
+
+        .photo-projects {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 25px;
+
+            width: 100%;
+        }
+
+
+        /* PHOTO PROJECT COVER */
+
+        .photo-project-card {
+            position: relative;
+
+            width: 100%;
+
+            padding: 0;
+            border: 0;
+
+            background: #000;
+
+            cursor: pointer;
+
+            overflow: hidden;
+
+            text-align: left;
+        }
+
+        .photo-project-card img {
+            display: block;
+
+            width: 100%;
+
+            aspect-ratio: 4 / 5;
+
+            object-fit: cover;
+            object-position: center;
+
+            transition:
+                transform 0.7s ease,
+                opacity 0.5s ease;
+        }
+
+        .photo-project-card:hover img {
+            transform: scale(1.025);
+            opacity: 0.82;
+        }
+
+
+        /* DARK GRADIENT */
+
+        .photo-project-card::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(0, 0, 0, 0.70) 0%,
+                    rgba(0, 0, 0, 0.10) 45%,
+                    rgba(0, 0, 0, 0.00) 70%
+                );
+
+            pointer-events: none;
+        }
+
+
+        /* PROJECT TITLE */
+
+        .photo-project-info {
+            position: absolute;
+
+            left: 35px;
+            right: 35px;
+            bottom: 32px;
+
+            z-index: 2;
+
+            color: white;
+        }
+
+        .photo-project-name {
+            display: block;
+
+            font-size: clamp(25px, 3vw, 48px);
+            font-weight: 600;
+
+            line-height: 1;
+
+            letter-spacing: -1.5px;
+        }
+
+        .photo-project-view {
+            display: block;
+
+            margin-top: 14px;
+
+            font-size: 9px;
+            font-weight: 600;
+
+            letter-spacing: 3px;
+
+            opacity: 0;
+
+            transform: translateY(8px);
+
+            transition:
+                opacity 0.3s ease,
+                transform 0.3s ease;
+        }
+
+        .photo-project-card:hover .photo-project-view {
+            opacity: 0.75;
+
+            transform: translateY(0);
+        }
+
+
+        /* =========================================
+           PHOTO GALLERY VIEW
+        ========================================= */
+
+        .photo-gallery-view {
+            display: none;
+
+            width: 100%;
+
+            padding-top: 20px;
+        }
+
+        .photo-gallery-view.active {
+            display: block;
+
+            animation: galleryFade 0.5s ease;
+        }
+
+        @keyframes galleryFade {
+
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* BACK BUTTON */
+
+        .gallery-back {
+            display: inline-flex;
+
+            align-items: center;
+
+            margin-bottom: 60px;
+
+            padding: 0;
+
+            border: 0;
+
+            background: transparent;
+
+            color: rgba(255, 255, 255, 0.65);
+
+            font-size: 10px;
+            font-weight: 600;
+
+            letter-spacing: 2px;
+
+            cursor: pointer;
+
+            transition:
+                color 0.3s ease,
+                transform 0.3s ease;
+        }
+
+        .gallery-back:hover {
+            color: white;
+
+            transform: translateX(-4px);
+        }
+
+
+        /* GALLERY HEADER */
+
+        .gallery-header {
+            margin-bottom: 80px;
+        }
+
+        .gallery-project-label {
+            margin-bottom: 20px;
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .gallery-title {
+            font-size: clamp(55px, 9vw, 135px);
+
+            line-height: 0.85;
+            letter-spacing: -5px;
+
+            font-weight: 700;
+        }
+
+
+        /* PHOTO GALLERY */
+
+        .birth-gallery {
+            width: 100%;
+
+            columns: 3;
+            column-gap: 20px;
+        }
+
+        .gallery-photo {
+            display: block;
+
+            width: 100%;
+
+            margin-bottom: 20px;
+
+            padding: 0;
+
+            border: 0;
+
+            background: transparent;
+
+            cursor: zoom-in;
+
+            break-inside: avoid;
+
+            overflow: hidden;
+        }
+
+        .gallery-photo img {
+            display: block;
+
+            width: 100%;
+            height: auto;
+
+            transition:
+                transform 0.5s ease,
+                opacity 0.4s ease;
+        }
+
+        .gallery-photo:hover img {
+            transform: scale(1.015);
+            opacity: 0.9;
+        }
+
+
+        /* =========================================
+           PHOTO LIGHTBOX
+        ========================================= */
+
+        .lightbox {
+            position: fixed;
+
+            inset: 0;
+
+            display: none;
+
+            justify-content: center;
+            align-items: center;
+
+            padding: 50px;
+
+            background: rgba(0, 0, 0, 0.96);
+
+            z-index: 1000;
+
+            cursor: zoom-out;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            display: block;
+
+            max-width: 95vw;
+            max-height: 90vh;
+
+            width: auto;
+            height: auto;
+
+            object-fit: contain;
+
+            cursor: default;
+        }
+
+        .lightbox-close {
+            position: absolute;
+
+            top: 25px;
+            right: 35px;
+
+            width: 50px;
+            height: 50px;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            border: 0;
+
+            background: transparent;
+
+            color: white;
+
+            font-size: 36px;
+            font-weight: 200;
+
+            cursor: pointer;
+
+            z-index: 2;
         }
 
 
@@ -443,6 +813,7 @@
 
         #contact {
             background: #050505;
+
             min-height: 100vh;
         }
 
@@ -620,6 +991,7 @@
 
         .submit-button {
             display: inline-flex;
+
             justify-content: center;
             align-items: center;
 
@@ -630,6 +1002,7 @@
             margin-top: 10px;
 
             font-family: Arial, Helvetica, sans-serif;
+
             font-size: 11px;
             font-weight: 600;
 
@@ -746,6 +1119,10 @@
                     repeat(4, minmax(0, 1fr));
             }
 
+            .birth-gallery {
+                columns: 2;
+            }
+
         }
 
 
@@ -791,6 +1168,7 @@
 
             .menu a {
                 font-size: 11px;
+
                 letter-spacing: 1.5px;
             }
 
@@ -854,6 +1232,7 @@
                 font-size: clamp(44px, 15vw, 72px);
 
                 line-height: 0.92;
+
                 letter-spacing: -3px;
 
                 width: 100%;
@@ -885,6 +1264,7 @@
 
             .work-video {
                 width: 100%;
+
                 min-width: 0;
             }
 
@@ -894,6 +1274,7 @@
 
             .video-cover:hover img {
                 transform: none;
+
                 opacity: 1;
             }
 
@@ -903,9 +1284,136 @@
 
             .project-video {
                 width: 100%;
+
                 height: auto;
 
                 max-width: 100%;
+            }
+
+
+            /* PHOTOGRAPHY */
+
+            .photography-section {
+                margin-top: 100px;
+
+                padding-top: 60px;
+            }
+
+            .photography-label {
+                margin-bottom: 25px;
+
+                font-size: 9px;
+            }
+
+            .photography-title {
+                margin-bottom: 45px;
+
+                font-size: clamp(42px, 13vw, 65px);
+
+                letter-spacing: -2.5px;
+            }
+
+            .photo-projects {
+                grid-template-columns: 1fr;
+
+                gap: 18px;
+            }
+
+            .photo-project-card {
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            .photo-project-card img {
+                aspect-ratio: 4 / 5;
+            }
+
+            .photo-project-card:hover img {
+                transform: none;
+
+                opacity: 1;
+            }
+
+            .photo-project-info {
+                left: 22px;
+                right: 22px;
+
+                bottom: 22px;
+            }
+
+            .photo-project-name {
+                font-size: 31px;
+
+                letter-spacing: -1px;
+            }
+
+            .photo-project-view {
+                display: none;
+            }
+
+
+            /* GALLERY */
+
+            .gallery-back {
+                margin-bottom: 45px;
+
+                font-size: 9px;
+            }
+
+            .gallery-header {
+                margin-bottom: 50px;
+            }
+
+            .gallery-project-label {
+                font-size: 9px;
+
+                margin-bottom: 15px;
+            }
+
+            .gallery-title {
+                font-size: clamp(44px, 14vw, 68px);
+
+                line-height: 0.9;
+
+                letter-spacing: -3px;
+            }
+
+            .birth-gallery {
+                columns: 1;
+
+                column-gap: 0;
+            }
+
+            .gallery-photo {
+                margin-bottom: 14px;
+            }
+
+            .gallery-photo:hover img {
+                transform: none;
+
+                opacity: 1;
+            }
+
+
+            /* LIGHTBOX */
+
+            .lightbox {
+                padding: 15px;
+            }
+
+            .lightbox img {
+                max-width: 100%;
+
+                max-height: 88vh;
+            }
+
+            .lightbox-close {
+                top: 10px;
+                right: 10px;
+
+                width: 45px;
+                height: 45px;
+
+                font-size: 32px;
             }
 
 
@@ -939,6 +1447,7 @@
                 font-size: clamp(42px, 13.5vw, 68px);
 
                 line-height: 0.9;
+
                 letter-spacing: -3px;
 
                 width: 100%;
@@ -976,6 +1485,7 @@
 
             .contact-form-container {
                 margin-top: 70px;
+
                 padding-top: 55px;
             }
 
@@ -1176,290 +1686,488 @@
     >
 
 
-        <div class="section-number">
-            01 / WORK
+        <!-- =====================================
+             MAIN WORK VIEW
+        ====================================== -->
+
+        <div id="mainWorkView">
+
+
+            <div class="section-number">
+                01 / WORK
+            </div>
+
+
+            <h2 class="section-title">
+                SELECTED<br>
+                WORK
+            </h2>
+
+
+            <p class="work-intro">
+
+                Una selección de proyectos de producción audiovisual,
+                fotografía, contenido y dirección creativa.
+
+            </p>
+
+
+            <!-- =================================
+                 VIDEO GRID
+            ================================== -->
+
+            <div class="work-grid">
+
+
+                <!-- COOPENAE 01 -->
+
+                <div class="work-video">
+
+                    <button
+                        class="video-cover"
+                        type="button"
+                        aria-label="Reproducir video"
+                    >
+
+                        <img
+                            src="Coopenae_01_Portada.png"
+                            alt="Proyecto audiovisual Coopenae"
+                            loading="lazy"
+                        >
+
+                    </button>
+
+
+                    <video
+                        class="project-video"
+                        controls
+                        playsinline
+                        preload="metadata"
+                    >
+
+                        <source
+                            src="Coopenae_01.mp4"
+                            type="video/mp4"
+                        >
+
+                    </video>
+
+                </div>
+
+
+                <!-- COOPENAE 03 -->
+
+                <div class="work-video">
+
+                    <button
+                        class="video-cover"
+                        type="button"
+                        aria-label="Reproducir video"
+                    >
+
+                        <img
+                            src="Coopenae_03_Portada.png"
+                            alt="Proyecto audiovisual Coopenae"
+                            loading="lazy"
+                        >
+
+                    </button>
+
+
+                    <video
+                        class="project-video"
+                        controls
+                        playsinline
+                        preload="metadata"
+                    >
+
+                        <source
+                            src="Coopenae_03.mp4"
+                            type="video/mp4"
+                        >
+
+                    </video>
+
+                </div>
+
+
+                <!-- DENNYS 01 -->
+
+                <div class="work-video">
+
+                    <button
+                        class="video-cover"
+                        type="button"
+                        aria-label="Reproducir video"
+                    >
+
+                        <img
+                            src="Dennys01_Portada.jpg"
+                            alt="Proyecto audiovisual Denny's"
+                            loading="lazy"
+                        >
+
+                    </button>
+
+
+                    <video
+                        class="project-video"
+                        controls
+                        playsinline
+                        preload="metadata"
+                    >
+
+                        <source
+                            src="Dennys01.mp4"
+                            type="video/mp4"
+                        >
+
+                    </video>
+
+                </div>
+
+
+                <!-- DENNYS 02 -->
+
+                <div class="work-video">
+
+                    <button
+                        class="video-cover"
+                        type="button"
+                        aria-label="Reproducir video"
+                    >
+
+                        <img
+                            src="Dennys2_Portada.jpg"
+                            alt="Proyecto audiovisual Denny's"
+                            loading="lazy"
+                        >
+
+                    </button>
+
+
+                    <video
+                        class="project-video"
+                        controls
+                        playsinline
+                        preload="metadata"
+                    >
+
+                        <source
+                            src="Dennys2.mp4"
+                            type="video/mp4"
+                        >
+
+                    </video>
+
+                </div>
+
+
+                <!-- TODOS LOS PLATOS -->
+
+                <div class="work-video">
+
+                    <button
+                        class="video-cover"
+                        type="button"
+                        aria-label="Reproducir video"
+                    >
+
+                        <img
+                            src="TodosLosPlatos_Portada.jpg"
+                            alt="Proyecto audiovisual gastronómico"
+                            loading="lazy"
+                        >
+
+                    </button>
+
+
+                    <video
+                        class="project-video"
+                        controls
+                        playsinline
+                        preload="metadata"
+                    >
+
+                        <source
+                            src="TodosLosPlatos.mp4"
+                            type="video/mp4"
+                        >
+
+                    </video>
+
+                </div>
+
+
+                <!-- DR CASTRILLO 01 -->
+
+                <div class="work-video">
+
+                    <button
+                        class="video-cover"
+                        type="button"
+                        aria-label="Reproducir video"
+                    >
+
+                        <img
+                            src="DrCastrillo01_Portada.png"
+                            alt="Proyecto audiovisual Dr. Castrillo"
+                            loading="lazy"
+                        >
+
+                    </button>
+
+
+                    <video
+                        class="project-video"
+                        controls
+                        playsinline
+                        preload="metadata"
+                    >
+
+                        <source
+                            src="DrCastrillo01.mp4"
+                            type="video/mp4"
+                        >
+
+                    </video>
+
+                </div>
+
+
+                <!-- DR CASTRILLO 02 -->
+
+                <div class="work-video">
+
+                    <button
+                        class="video-cover"
+                        type="button"
+                        aria-label="Reproducir video"
+                    >
+
+                        <img
+                            src="DrCastrillo02_Portada.jpg"
+                            alt="Proyecto audiovisual Dr. Castrillo"
+                            loading="lazy"
+                        >
+
+                    </button>
+
+
+                    <video
+                        class="project-video"
+                        controls
+                        playsinline
+                        preload="metadata"
+                    >
+
+                        <source
+                            src="DrCastrillo02.mp4"
+                            type="video/mp4"
+                        >
+
+                    </video>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =================================
+                 PHOTOGRAPHY
+            ================================== -->
+
+            <div class="photography-section">
+
+
+                <div class="photography-label">
+                    PHOTOGRAPHY
+                </div>
+
+
+                <h3 class="photography-title">
+                    PHOTO<br>
+                    STORIES
+                </h3>
+
+
+                <div class="photo-projects">
+
+
+                    <!-- BIRTH PHOTOGRAPHY -->
+
+                    <button
+                        class="photo-project-card"
+                        id="openBirthGallery"
+                        type="button"
+                        aria-label="Abrir proyecto Birth Photography"
+                    >
+
+                        <img
+                            src="Birth_Portada.jpeg"
+                            alt="Birth Photography"
+                            loading="lazy"
+                        >
+
+
+                        <span class="photo-project-info">
+
+                            <span class="photo-project-name">
+                                BIRTH PHOTOGRAPHY
+                            </span>
+
+                            <span class="photo-project-view">
+                                VIEW PROJECT →
+                            </span>
+
+                        </span>
+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
         </div>
 
 
-        <h2 class="section-title">
-            SELECTED<br>
-            WORK
-        </h2>
+        <!-- =====================================
+             BIRTH PHOTOGRAPHY GALLERY
+        ====================================== -->
+
+        <div
+            class="photo-gallery-view"
+            id="birthGalleryView"
+        >
 
 
-        <p class="work-intro">
-
-            Una selección de proyectos de producción audiovisual,
-            fotografía, contenido y dirección creativa.
-
-        </p>
-
-
-        <div class="work-grid">
+            <button
+                class="gallery-back"
+                id="closeBirthGallery"
+                type="button"
+            >
+                ← BACK TO WORK
+            </button>
 
 
-            <!-- =================================
-                 COOPENAE 01
-            ================================== -->
+            <div class="gallery-header">
 
-            <div class="work-video">
+                <div class="gallery-project-label">
+                    PHOTOGRAPHY / 01
+                </div>
 
-                <button
-                    class="video-cover"
-                    type="button"
-                    aria-label="Reproducir video"
-                >
-
-                    <img
-                        src="Coopenae_01_Portada.png"
-                        alt="Proyecto audiovisual Coopenae"
-                        loading="lazy"
-                    >
-
-                </button>
-
-
-                <video
-                    class="project-video"
-                    controls
-                    playsinline
-                    preload="metadata"
-                >
-
-                    <source
-                        src="Coopenae_01.mp4"
-                        type="video/mp4"
-                    >
-
-                </video>
+                <h2 class="gallery-title">
+                    BIRTH<br>
+                    PHOTOGRAPHY
+                </h2>
 
             </div>
 
 
-            <!-- =================================
-                 COOPENAE 03
-            ================================== -->
+            <div class="birth-gallery">
 
-            <div class="work-video">
 
                 <button
-                    class="video-cover"
+                    class="gallery-photo"
                     type="button"
-                    aria-label="Reproducir video"
                 >
 
                     <img
-                        src="Coopenae_03_Portada.png"
-                        alt="Proyecto audiovisual Coopenae"
+                        src="Birth_01.jpeg"
+                        alt="Birth Photography 01"
                         loading="lazy"
                     >
 
                 </button>
 
 
-                <video
-                    class="project-video"
-                    controls
-                    playsinline
-                    preload="metadata"
-                >
-
-                    <source
-                        src="Coopenae_03.mp4"
-                        type="video/mp4"
-                    >
-
-                </video>
-
-            </div>
-
-
-            <!-- =================================
-                 DENNYS 01
-            ================================== -->
-
-            <div class="work-video">
-
                 <button
-                    class="video-cover"
+                    class="gallery-photo"
                     type="button"
-                    aria-label="Reproducir video"
                 >
 
                     <img
-                        src="Dennys01_Portada.jpg"
-                        alt="Proyecto audiovisual Denny's"
+                        src="Birth_02.jpeg"
+                        alt="Birth Photography 02"
                         loading="lazy"
                     >
 
                 </button>
 
 
-                <video
-                    class="project-video"
-                    controls
-                    playsinline
-                    preload="metadata"
-                >
-
-                    <source
-                        src="Dennys01.mp4"
-                        type="video/mp4"
-                    >
-
-                </video>
-
-            </div>
-
-
-            <!-- =================================
-                 DENNYS 02
-            ================================== -->
-
-            <div class="work-video">
-
                 <button
-                    class="video-cover"
+                    class="gallery-photo"
                     type="button"
-                    aria-label="Reproducir video"
                 >
 
                     <img
-                        src="Dennys2_Portada.jpg"
-                        alt="Proyecto audiovisual Denny's"
+                        src="Birth_03.jpeg"
+                        alt="Birth Photography 03"
                         loading="lazy"
                     >
 
                 </button>
 
 
-                <video
-                    class="project-video"
-                    controls
-                    playsinline
-                    preload="metadata"
-                >
-
-                    <source
-                        src="Dennys2.mp4"
-                        type="video/mp4"
-                    >
-
-                </video>
-
-            </div>
-
-
-            <!-- =================================
-                 TODOS LOS PLATOS
-            ================================== -->
-
-            <div class="work-video">
-
                 <button
-                    class="video-cover"
+                    class="gallery-photo"
                     type="button"
-                    aria-label="Reproducir video"
                 >
 
                     <img
-                        src="TodosLosPlatos_Portada.jpg"
-                        alt="Proyecto audiovisual gastronómico"
+                        src="Birth_04.jpeg"
+                        alt="Birth Photography 04"
                         loading="lazy"
                     >
 
                 </button>
 
 
-                <video
-                    class="project-video"
-                    controls
-                    playsinline
-                    preload="metadata"
-                >
-
-                    <source
-                        src="TodosLosPlatos.mp4"
-                        type="video/mp4"
-                    >
-
-                </video>
-
-            </div>
-
-
-            <!-- =================================
-                 DR CASTRILLO 01
-            ================================== -->
-
-            <div class="work-video">
-
                 <button
-                    class="video-cover"
+                    class="gallery-photo"
                     type="button"
-                    aria-label="Reproducir video"
                 >
 
                     <img
-                        src="DrCastrillo01_Portada.png"
-                        alt="Proyecto audiovisual Dr. Castrillo"
+                        src="Birth_05.jpeg"
+                        alt="Birth Photography 05"
                         loading="lazy"
                     >
 
                 </button>
 
 
-                <video
-                    class="project-video"
-                    controls
-                    playsinline
-                    preload="metadata"
-                >
-
-                    <source
-                        src="DrCastrillo01.mp4"
-                        type="video/mp4"
-                    >
-
-                </video>
-
-            </div>
-
-
-            <!-- =================================
-                 DR CASTRILLO 02
-            ================================== -->
-
-            <div class="work-video">
-
                 <button
-                    class="video-cover"
+                    class="gallery-photo"
                     type="button"
-                    aria-label="Reproducir video"
                 >
 
                     <img
-                        src="DrCastrillo02_Portada.jpg"
-                        alt="Proyecto audiovisual Dr. Castrillo"
+                        src="Birth_06.jpeg"
+                        alt="Birth Photography 06"
                         loading="lazy"
                     >
 
                 </button>
 
 
-                <video
-                    class="project-video"
-                    controls
-                    playsinline
-                    preload="metadata"
+                <button
+                    class="gallery-photo"
+                    type="button"
                 >
 
-                    <source
-                        src="DrCastrillo02.mp4"
-                        type="video/mp4"
+                    <img
+                        src="Birth_07.jpeg"
+                        alt="Birth Photography 07"
+                        loading="lazy"
                     >
 
-                </video>
+                </button>
+
 
             </div>
 
@@ -1623,7 +2331,7 @@
                 </div>
 
 
-                <!-- PAÍS + TELÉFONO -->
+                <!-- PAIS + TELEFONO -->
 
                 <div class="form-row">
 
@@ -1720,7 +2428,7 @@
                 >
 
 
-                <!-- BOTÓN -->
+                <!-- SUBMIT -->
 
                 <button
                     type="submit"
@@ -1737,7 +2445,9 @@
                     class="form-error"
                     id="formError"
                 >
+
                     No pudimos enviar el mensaje. Por favor intentá nuevamente o contactanos por WhatsApp.
+
                 </div>
 
 
@@ -1769,13 +2479,43 @@
 
 
     <!-- =========================================
-         SCRIPTS
+         PHOTO LIGHTBOX
+    ========================================== -->
+
+    <div
+        class="lightbox"
+        id="photoLightbox"
+        aria-hidden="true"
+    >
+
+        <button
+            class="lightbox-close"
+            id="lightboxClose"
+            type="button"
+            aria-label="Cerrar fotografía"
+        >
+            ×
+        </button>
+
+
+        <img
+            id="lightboxImage"
+            src=""
+            alt=""
+        >
+
+    </div>
+
+
+    <!-- =========================================
+         JAVASCRIPT
     ========================================== -->
 
     <script>
 
+
         /* =========================================
-           PROJECT VIDEOS
+           VIDEO PROJECTS
         ========================================= */
 
         const videoCovers =
@@ -1795,7 +2535,7 @@
                         card.querySelector(".project-video");
 
 
-                    /* Pausar cualquier otro video */
+                    /* PAUSE OTHER VIDEOS */
 
                     document
                         .querySelectorAll(".project-video")
@@ -1813,20 +2553,19 @@
                         });
 
 
-                    /* Mostrar el video */
+                    /* SHOW VIDEO */
 
                     card.classList.add("is-playing");
 
 
-                    /* Reproducir */
+                    /* PLAY */
 
                     video.play().catch(function() {
 
                         /*
-                        Si el navegador bloquea la
+                        Si el navegador bloquea
                         reproducción automática,
-                        el video queda visible y el
-                        usuario puede pulsar Play.
+                        el video queda visible.
                         */
 
                     });
@@ -1835,6 +2574,221 @@
             );
 
         });
+
+
+        /* =========================================
+           BIRTH PHOTOGRAPHY PROJECT
+        ========================================= */
+
+        const mainWorkView =
+            document.getElementById("mainWorkView");
+
+        const birthGalleryView =
+            document.getElementById("birthGalleryView");
+
+        const openBirthGallery =
+            document.getElementById("openBirthGallery");
+
+        const closeBirthGallery =
+            document.getElementById("closeBirthGallery");
+
+
+        openBirthGallery.addEventListener(
+            "click",
+            function() {
+
+
+                /* PAUSE VIDEOS */
+
+                document
+                    .querySelectorAll(".project-video")
+                    .forEach(function(video) {
+
+                        video.pause();
+
+                    });
+
+
+                /* HIDE WORK */
+
+                mainWorkView.style.display =
+                    "none";
+
+
+                /* SHOW GALLERY */
+
+                birthGalleryView.classList.add(
+                    "active"
+                );
+
+
+                /* SCROLL TO WORK */
+
+                document
+                    .getElementById("work")
+                    .scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+
+            }
+        );
+
+
+        closeBirthGallery.addEventListener(
+            "click",
+            function() {
+
+
+                /* HIDE GALLERY */
+
+                birthGalleryView.classList.remove(
+                    "active"
+                );
+
+
+                /* SHOW WORK */
+
+                mainWorkView.style.display =
+                    "block";
+
+
+                /* RETURN TO PHOTOGRAPHY */
+
+                setTimeout(
+                    function() {
+
+                        document
+                            .querySelector(".photography-section")
+                            .scrollIntoView({
+                                behavior: "smooth",
+                                block: "start"
+                            });
+
+                    },
+                    50
+                );
+
+            }
+        );
+
+
+        /* =========================================
+           PHOTO LIGHTBOX
+        ========================================= */
+
+        const galleryPhotos =
+            document.querySelectorAll(".gallery-photo");
+
+        const photoLightbox =
+            document.getElementById("photoLightbox");
+
+        const lightboxImage =
+            document.getElementById("lightboxImage");
+
+        const lightboxClose =
+            document.getElementById("lightboxClose");
+
+
+        galleryPhotos.forEach(function(photo) {
+
+            photo.addEventListener(
+                "click",
+                function() {
+
+                    const image =
+                        photo.querySelector("img");
+
+
+                    lightboxImage.src =
+                        image.src;
+
+                    lightboxImage.alt =
+                        image.alt;
+
+
+                    photoLightbox.classList.add(
+                        "active"
+                    );
+
+                    photoLightbox.setAttribute(
+                        "aria-hidden",
+                        "false"
+                    );
+
+
+                    document.body.style.overflow =
+                        "hidden";
+
+                }
+            );
+
+        });
+
+
+        function closeLightbox() {
+
+            photoLightbox.classList.remove(
+                "active"
+            );
+
+            photoLightbox.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+            lightboxImage.src =
+                "";
+
+            document.body.style.overflow =
+                "";
+
+        }
+
+
+        lightboxClose.addEventListener(
+            "click",
+            function(event) {
+
+                event.stopPropagation();
+
+                closeLightbox();
+
+            }
+        );
+
+
+        photoLightbox.addEventListener(
+            "click",
+            function(event) {
+
+                if (
+                    event.target === photoLightbox
+                ) {
+
+                    closeLightbox();
+
+                }
+
+            }
+        );
+
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (
+                    event.key === "Escape" &&
+                    photoLightbox.classList.contains("active")
+                ) {
+
+                    closeLightbox();
+
+                }
+
+            }
+        );
 
 
         /* =========================================
@@ -1882,6 +2836,7 @@
                         await fetch(
                             "https://formsubmit.co/ajax/e79cb964061c521e2e827064c43e8776",
                             {
+
                                 method: "POST",
 
                                 body: formData,
@@ -1889,6 +2844,7 @@
                                 headers: {
                                     "Accept": "application/json"
                                 }
+
                             }
                         );
 
@@ -1925,6 +2881,7 @@
                     submitButton.disabled =
                         false;
 
+
                     submitButton.textContent =
                         "ENVIAR MENSAJE →";
 
@@ -1933,6 +2890,7 @@
 
             }
         );
+
 
     </script>
 
