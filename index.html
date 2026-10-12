@@ -1627,12 +1627,102 @@
 
         }
 
+
+        /* =========================================
+           SCROLL BREATH / PULSO LATERAL
+           ========================================= */
+
+        .scroll-breath {
+            --breath-strength: 0;
+            --breath-spread: 0;
+            --breath-rgb: 232, 224, 210;
+
+            position: fixed;
+            inset: 0;
+            z-index: 40;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .scroll-breath::before,
+        .scroll-breath::after {
+            content: "";
+            position: absolute;
+            top: -12vh;
+            bottom: -12vh;
+            width: 22vw;
+            min-width: 150px;
+            max-width: 360px;
+
+            opacity: calc(0.018 + (var(--breath-strength) * 0.11));
+            filter: blur(58px);
+
+            background:
+                radial-gradient(
+                    ellipse at center,
+                    rgba(var(--breath-rgb), 0.92) 0%,
+                    rgba(var(--breath-rgb), 0.42) 34%,
+                    rgba(var(--breath-rgb), 0.12) 62%,
+                    rgba(var(--breath-rgb), 0) 82%
+                );
+
+            will-change: transform, opacity;
+        }
+
+        .scroll-breath::before {
+            left: -13vw;
+            transform:
+                translate3d(calc(var(--breath-spread) * 7vw), 0, 0)
+                scaleX(calc(1 + (var(--breath-strength) * 0.34)))
+                scaleY(calc(1 + (var(--breath-strength) * 0.06)));
+        }
+
+        .scroll-breath::after {
+            right: -13vw;
+            transform:
+                translate3d(calc(var(--breath-spread) * -6.3vw), 0, 0)
+                scaleX(calc(1 + (var(--breath-strength) * 0.30)))
+                scaleY(calc(1 + (var(--breath-strength) * 0.09)));
+        }
+
+        .scroll-breath.is-about {
+            --breath-rgb: 92, 72, 45;
+        }
+
+        @media (max-width: 700px) {
+            .scroll-breath::before,
+            .scroll-breath::after {
+                width: 38vw;
+                min-width: 120px;
+                filter: blur(42px);
+                opacity: calc(0.014 + (var(--breath-strength) * 0.095));
+            }
+
+            .scroll-breath::before {
+                left: -27vw;
+            }
+
+            .scroll-breath::after {
+                right: -27vw;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .scroll-breath {
+                display: none;
+            }
+        }
+
     </style>
 
 </head>
 
 
 <body>
+
+    <!-- Pulso lateral activado por el scroll -->
+    <div class="scroll-breath" id="scrollBreath" aria-hidden="true"></div>
+
 
 
     <!-- =========================================
@@ -3177,6 +3267,86 @@
             }
         );
 
+
+
+        /* =========================================
+           SCROLL BREATH / PULSO LATERAL
+           ========================================= */
+
+        (() => {
+
+            const breath = document.getElementById("scrollBreath");
+            const about = document.getElementById("about");
+            const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+            if (!breath || reduceMotion.matches) return;
+
+            let lastScrollY = window.scrollY;
+            let lastTime = performance.now();
+            let target = 0;
+            let current = 0;
+            let spread = 0;
+            let rafId = null;
+
+            const updateSectionTone = () => {
+                if (!about) return;
+
+                const rect = about.getBoundingClientRect();
+                const screenMiddle = window.innerHeight * 0.5;
+                const insideAbout = rect.top < screenMiddle && rect.bottom > screenMiddle;
+
+                breath.classList.toggle("is-about", insideAbout);
+            };
+
+            const onScroll = () => {
+                const now = performance.now();
+                const y = window.scrollY;
+                const distance = Math.abs(y - lastScrollY);
+                const elapsed = Math.max(16, now - lastTime);
+                const velocity = distance / elapsed;
+
+                /* 0 = reposo, 1 = respiración máxima */
+                target = Math.min(1, target + velocity * 0.72 + distance * 0.0045);
+
+                lastScrollY = y;
+                lastTime = now;
+
+                updateSectionTone();
+
+                if (!rafId) rafId = requestAnimationFrame(animate);
+            };
+
+            const animate = () => {
+                /* Entrada relativamente rápida, salida lenta: sensación de inhalar/exhalar */
+                const ease = target > current ? 0.13 : 0.055;
+                current += (target - current) * ease;
+                spread += (current - spread) * 0.075;
+
+                breath.style.setProperty("--breath-strength", current.toFixed(4));
+                breath.style.setProperty("--breath-spread", spread.toFixed(4));
+
+                /* La energía del scroll se disipa gradualmente */
+                target *= 0.91;
+
+                if (current < 0.002 && target < 0.002) {
+                    current = 0;
+                    target = 0;
+                    spread = 0;
+                    breath.style.setProperty("--breath-strength", "0");
+                    breath.style.setProperty("--breath-spread", "0");
+                    rafId = null;
+                    return;
+                }
+
+                rafId = requestAnimationFrame(animate);
+            };
+
+            updateSectionTone();
+
+            window.addEventListener("scroll", onScroll, { passive: true });
+            window.addEventListener("resize", updateSectionTone, { passive: true });
+
+        })();
 
     </script>
 
