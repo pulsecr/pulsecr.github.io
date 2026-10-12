@@ -162,13 +162,14 @@
             position: absolute;
             left: 50%;
             top: 46%;
-            width: min(58vw, 900px);
+            width: min(68vw, 1050px);
             aspect-ratio: 1 / 0.72;
-            z-index: 2;
+            z-index: 3;
             pointer-events: none;
             transform: translate3d(-50%, -50%, 0);
             will-change: transform;
-            opacity: 0.34;
+            opacity: 0.72;
+            mix-blend-mode: screen;
         }
 
         .hero-organic-blob {
@@ -178,18 +179,18 @@
             background:
                 radial-gradient(
                     circle at 34% 32%,
-                    rgba(255, 247, 220, 0.16) 0%,
-                    rgba(255, 247, 220, 0.075) 26%,
-                    rgba(255, 247, 220, 0.025) 48%,
-                    transparent 70%
+                    rgba(255, 248, 225, 0.30) 0%,
+                    rgba(255, 248, 225, 0.16) 24%,
+                    rgba(255, 248, 225, 0.06) 48%,
+                    transparent 72%
                 ),
                 radial-gradient(
                     circle at 70% 68%,
-                    rgba(170, 198, 210, 0.08) 0%,
-                    rgba(170, 198, 210, 0.025) 42%,
-                    transparent 68%
+                    rgba(180, 205, 214, 0.16) 0%,
+                    rgba(180, 205, 214, 0.06) 40%,
+                    transparent 70%
                 );
-            filter: blur(44px);
+            filter: blur(52px);
             transform: translateZ(0);
             will-change: transform, border-radius;
             animation: organicBreath 15s ease-in-out infinite alternate;
@@ -1327,8 +1328,8 @@
 
             .hero-organic-field {
                 top: 44%;
-                width: 125vw;
-                opacity: 0.25;
+                width: 135vw;
+                opacity: 0.46;
             }
 
             .hero-organic-blob {
@@ -1790,7 +1791,7 @@
 
         <div class="hero-content">
 
-            <h1 class="hero-title hero-magnetic" data-magnetic-strength="6">
+            <h1 class="hero-title hero-magnetic" data-magnetic-strength="8">
                 PULSE
             </h1>
 
@@ -2937,8 +2938,8 @@
                 const normalizedX = ((event.clientX - rect.left) / rect.width) - 0.5;
                 const normalizedY = ((event.clientY - rect.top) / rect.height) - 0.5;
 
-                targetX = normalizedX * 34;
-                targetY = normalizedY * 22;
+                targetX = normalizedX * 64;
+                targetY = normalizedY * 42;
 
             });
 
@@ -2950,8 +2951,8 @@
 
             magneticElements.forEach(function (element) {
 
-                const strength = Number(element.dataset.magneticStrength || 6);
-                const influence = 150;
+                const strength = Number(element.dataset.magneticStrength || 8);
+                const influence = 220;
 
                 hero.addEventListener("pointermove", function (event) {
 
