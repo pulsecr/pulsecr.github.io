@@ -152,72 +152,6 @@
             pointer-events: none;
         }
 
-
-
-        /* =========================================
-           HERO ORGANIC INTERACTION
-        ========================================= */
-
-        .hero-organic-field {
-            position: absolute;
-            left: 50%;
-            top: 46%;
-            width: min(68vw, 1050px);
-            aspect-ratio: 1 / 0.72;
-            z-index: 3;
-            pointer-events: none;
-            transform: translate3d(-50%, -50%, 0);
-            will-change: transform;
-            opacity: 0.72;
-            mix-blend-mode: screen;
-        }
-
-        .hero-organic-blob {
-            width: 100%;
-            height: 100%;
-            border-radius: 46% 54% 61% 39% / 48% 42% 58% 52%;
-            background:
-                radial-gradient(
-                    circle at 34% 32%,
-                    rgba(255, 248, 225, 0.30) 0%,
-                    rgba(255, 248, 225, 0.16) 24%,
-                    rgba(255, 248, 225, 0.06) 48%,
-                    transparent 72%
-                ),
-                radial-gradient(
-                    circle at 70% 68%,
-                    rgba(180, 205, 214, 0.16) 0%,
-                    rgba(180, 205, 214, 0.06) 40%,
-                    transparent 70%
-                );
-            filter: blur(52px);
-            transform: translateZ(0);
-            will-change: transform, border-radius;
-            animation: organicBreath 15s ease-in-out infinite alternate;
-        }
-
-        @keyframes organicBreath {
-            0% {
-                transform: scale(0.96) rotate(-2deg);
-                border-radius: 46% 54% 61% 39% / 48% 42% 58% 52%;
-            }
-
-            50% {
-                transform: scale(1.035) rotate(1.5deg);
-                border-radius: 55% 45% 43% 57% / 41% 57% 43% 59%;
-            }
-
-            100% {
-                transform: scale(0.985) rotate(3deg);
-                border-radius: 42% 58% 53% 47% / 58% 45% 55% 42%;
-            }
-        }
-
-        .hero-magnetic {
-            will-change: transform;
-        }
-
-
         .hero-content {
             position: absolute;
 
@@ -1326,17 +1260,6 @@
             }
 
 
-            .hero-organic-field {
-                top: 44%;
-                width: 135vw;
-                opacity: 0.46;
-            }
-
-            .hero-organic-blob {
-                filter: blur(38px);
-            }
-
-
             /* SECTIONS */
 
             .section {
@@ -1702,16 +1625,6 @@
                 scroll-behavior: auto !important;
             }
 
-            .hero-organic-blob {
-                animation: none !important;
-            }
-
-            .hero-organic-field,
-            .hero-magnetic {
-                transform: none !important;
-                will-change: auto;
-            }
-
         }
 
     </style>
@@ -1784,14 +1697,10 @@
 
         <div class="hero-overlay"></div>
 
-        <div class="hero-organic-field" aria-hidden="true">
-            <div class="hero-organic-blob"></div>
-        </div>
-
 
         <div class="hero-content">
 
-            <h1 class="hero-title hero-magnetic" data-magnetic-strength="8">
+            <h1 class="hero-title">
                 PULSE
             </h1>
 
@@ -2889,106 +2798,6 @@
     ========================================== -->
 
     <script>
-
-        /* =========================================
-           HERO ORGANIC + MAGNETIC INTERACTION
-        ========================================= */
-
-        (function () {
-
-            const hero = document.querySelector(".hero");
-            const organicField = document.querySelector(".hero-organic-field");
-            const magneticElements = document.querySelectorAll(".hero-magnetic");
-            const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-            const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
-
-            if (!hero || !organicField || reducedMotion.matches || !finePointer.matches) {
-                return;
-            }
-
-            let targetX = 0;
-            let targetY = 0;
-            let currentX = 0;
-            let currentY = 0;
-            let isInsideHero = false;
-
-            function updateOrganicField() {
-
-                currentX += (targetX - currentX) * 0.045;
-                currentY += (targetY - currentY) * 0.045;
-
-                organicField.style.transform =
-                    `translate3d(calc(-50% + ${currentX}px), calc(-50% + ${currentY}px), 0)`;
-
-                requestAnimationFrame(updateOrganicField);
-
-            }
-
-            hero.addEventListener("pointerenter", function () {
-                isInsideHero = true;
-            });
-
-            hero.addEventListener("pointermove", function (event) {
-
-                if (!isInsideHero) {
-                    return;
-                }
-
-                const rect = hero.getBoundingClientRect();
-                const normalizedX = ((event.clientX - rect.left) / rect.width) - 0.5;
-                const normalizedY = ((event.clientY - rect.top) / rect.height) - 0.5;
-
-                targetX = normalizedX * 64;
-                targetY = normalizedY * 42;
-
-            });
-
-            hero.addEventListener("pointerleave", function () {
-                isInsideHero = false;
-                targetX = 0;
-                targetY = 0;
-            });
-
-            magneticElements.forEach(function (element) {
-
-                const strength = Number(element.dataset.magneticStrength || 8);
-                const influence = 220;
-
-                hero.addEventListener("pointermove", function (event) {
-
-                    const rect = element.getBoundingClientRect();
-                    const centerX = rect.left + rect.width / 2;
-                    const centerY = rect.top + rect.height / 2;
-                    const dx = event.clientX - centerX;
-                    const dy = event.clientY - centerY;
-                    const distance = Math.hypot(dx, dy);
-
-                    if (distance < influence) {
-
-                        const pull = 1 - (distance / influence);
-                        const moveX = (dx / influence) * strength * pull;
-                        const moveY = (dy / influence) * strength * pull;
-
-                        element.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
-
-                    } else {
-
-                        element.style.transform = "translate3d(0, 0, 0)";
-
-                    }
-
-                });
-
-                hero.addEventListener("pointerleave", function () {
-                    element.style.transform = "translate3d(0, 0, 0)";
-                });
-
-            });
-
-            updateOrganicField();
-
-        })();
-
 
 
         /* =========================================
