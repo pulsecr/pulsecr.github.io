@@ -774,6 +774,44 @@
         #about {
             background: #f1f1ed;
             color: #0a0a0a;
+            isolation: isolate;
+        }
+
+        /* Ondas abstractas muy sutiles detrás del contenido */
+        #about::before,
+        #about::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        #about::before {
+            width: 1050px;
+            height: 1050px;
+            top: -610px;
+            right: -250px;
+            border: 2px solid rgba(92, 72, 45, 0.055);
+            box-shadow:
+                0 0 0 125px rgba(92, 72, 45, 0.018),
+                0 0 0 250px rgba(92, 72, 45, 0.012);
+        }
+
+        #about::after {
+            width: 900px;
+            height: 900px;
+            left: -590px;
+            bottom: -610px;
+            border: 2px solid rgba(92, 72, 45, 0.045);
+            box-shadow:
+                0 0 0 115px rgba(92, 72, 45, 0.016),
+                0 0 0 230px rgba(92, 72, 45, 0.010);
+        }
+
+        #about > * {
+            position: relative;
+            z-index: 1;
         }
 
         .about-content {
